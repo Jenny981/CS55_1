@@ -12,7 +12,6 @@ from .matching import (
 )
 from .metrics import calculate_chain_metrics
 from .evidence_chain_builder import build_libevchain_bundle
-from .evchain_integration import build_evidence_chain, build_pipeline, configure_pass_context
 
 
 def run_full_pipeline(config, use_cache=True, cache_path=None, embedder=None):
@@ -46,17 +45,10 @@ def run_full_pipeline(config, use_cache=True, cache_path=None, embedder=None):
     )
 
     bundle = build_libevchain_bundle(config, prepared_data['storyboard_files'])
-    chain = build_evidence_chain(bundle)
-    configure_pass_context(prepared_data)
-    pipeline = build_pipeline(metrics)
-    pipeline_score = pipeline.eval_chain(chain)
 
     result = {
         'dataset_name': config['dataset_name'],
-        'final_score': {
-            'integrity': float(pipeline_score.integrity),
-            'completeness': float(pipeline_score.completeness),
-        },
+    
         'chain_metrics': {
             'coherence': metrics['coherence'],
             'confidence': metrics['confidence'],
@@ -74,10 +66,6 @@ def run_full_pipeline(config, use_cache=True, cache_path=None, embedder=None):
             'total_animatic_shots': metrics['total_animatic_shots'],
             'used_final_shots': metrics['used_final_shots'],
             'total_final_shots': metrics['total_final_shots'],
-        },
-        'evidence_chain': {
-            'artefact_count': len(chain.artefacts),
-            'relationship_count': len(list(chain.get_evidence_relationships())),
         },
     }
 
