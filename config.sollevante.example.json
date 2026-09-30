@@ -6,6 +6,7 @@
   "storyboard_processed_dir": "/path/to/SolLevante/outputs/storyboard_panels_clean",
   "animatic_processed_dir": "/path/to/SolLevante/outputs/animatic_keyframes",
   "final_processed_dir": "/path/to/SolLevante/outputs/final_keyframes",
+  "project_search_root": "/path/to/SolLevante",
   "expected_final_count": 62,
   "clip_model": "openai/clip-vit-base-patch32"
 }

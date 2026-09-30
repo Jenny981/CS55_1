@@ -12,6 +12,15 @@ from .matching import (
 )
 from .metrics import calculate_chain_metrics
 from .evidence_chain_builder import build_libevchain_bundle
+from .evchain_integration import (
+    build_evidence_chain,
+    build_pipeline,
+    configure_pass_context,
+)
+from .provenance import (
+    collect_basic_provenance,
+    simplify_provenance_indicators,
+)
 
 
 def run_full_pipeline(config, use_cache=True, cache_path=None, embedder=None):
@@ -44,11 +53,44 @@ def run_full_pipeline(config, use_cache=True, cache_path=None, embedder=None):
         expected_final_count=config.get('expected_final_count'),
     )
 
-    bundle = build_libevchain_bundle(config, prepared_data['storyboard_files'])
+    provenance = collect_basic_provenance(config)
+    provenance_authenticity_evidence = simplify_provenance_indicators(
+        provenance
+    )
+    bundle = build_libevchain_bundle(
+        config,
+        prepared_data['storyboard_files'],
+        provenance=provenance,
+    )
+    bundle['provenance_authenticity_evidence'] = (
+        provenance_authenticity_evidence
+    )
+
+    # Validate and evaluate the serialised bundle through the project-provided
+    # libevchain framework. The CS55-specific passes remain in cs55_demo.
+    configure_pass_context(prepared_data)
+    evidence_chain = build_evidence_chain(bundle)
+    pipeline = build_pipeline(metrics)
+    final_score = pipeline.eval_chain(evidence_chain)
+
+    relationship_count = sum(
+        1 for _ in evidence_chain.get_evidence_relationships()
+    )
 
     result = {
         'dataset_name': config['dataset_name'],
-    
+        'evidence_chain': {
+            'artefact_count': len(evidence_chain.artefacts),
+            'relationship_count': relationship_count,
+        },
+        'final_score': {
+            'integrity': float(final_score.integrity),
+            'completeness': float(final_score.completeness),
+        },
+        'provenance': provenance,
+        'provenance_authenticity_evidence': (
+            provenance_authenticity_evidence
+        ),
         'chain_metrics': {
             'coherence': metrics['coherence'],
             'confidence': metrics['confidence'],

@@ -2,4 +2,6 @@
 __pycache__/
 *.pyc
 cache/*.pt
+outputs/final_evidence_chain_result.json
+outputs/evidence_chain_bundle.json
 config.sollevante.json

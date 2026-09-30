@@ -6,6 +6,7 @@
   "storyboard_processed_dir": "data/sample/storyboard_panels",
   "animatic_processed_dir": "data/sample/animatic_keyframes",
   "final_processed_dir": "data/sample/final_keyframes",
+  "project_search_root": "data/sample",
   "expected_final_count": 4,
   "clip_model": "openai/clip-vit-base-patch32"
 }

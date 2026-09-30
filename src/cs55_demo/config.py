@@ -18,6 +18,9 @@ def load_config(config_path):
         'final_processed_dir',
     ]
 
+    if 'project_search_root' in data:
+        path_keys.append('project_search_root')
+
     for key in path_keys:
         value = Path(data[key])
         if not value.is_absolute():
