@@ -1,0 +1,1051 @@
+{
+    "hash_method": "sha256",
+    "final_artefact_hash": "e8868f83d78c4dd00b8c37d481a326fe67556ed9b0225554ec766e90448f4bed",
+    "artefacts": [
+        {
+            "artefact_hash": "7f2cb6424d1c78471d08a7367529833283fe620592ce8bc0f2360d68d0d60a82",
+            "artefact_type": "image",
+            "evidence": [],
+            "attributes": {}
+        },
+        {
+            "artefact_hash": "db67f9883fc970bc41f4e91e92327762fbe622abbc84b3399d908214628f95dd",
+            "artefact_type": "image",
+            "evidence": [],
+            "attributes": {}
+        },
+        {
+            "artefact_hash": "252ae042bbe6845cf22034966035e02dae0a0196791cc106bc0cd59d7fb14783",
+            "artefact_type": "image",
+            "evidence": [],
+            "attributes": {}
+        },
+        {
+            "artefact_hash": "ad29aaa694dfcfdb2774fe58a9415be0a300f58bd6473c5b3e8c8c72339d78eb",
+            "artefact_type": "image",
+            "evidence": [],
+            "attributes": {}
+        },
+        {
+            "artefact_hash": "7682d433d83f59b22e3a100a7b7daae9e4f39369c37058ea77af272f4759a098",
+            "artefact_type": "video",
+            "evidence": [
+                {
+                    "hash": "7f2cb6424d1c78471d08a7367529833283fe620592ce8bc0f2360d68d0d60a82",
+                    "relationship_type": "storyboard-to-animation",
+                    "attributes": {}
+                },
+                {
+                    "hash": "db67f9883fc970bc41f4e91e92327762fbe622abbc84b3399d908214628f95dd",
+                    "relationship_type": "storyboard-to-animation",
+                    "attributes": {}
+                },
+                {
+                    "hash": "252ae042bbe6845cf22034966035e02dae0a0196791cc106bc0cd59d7fb14783",
+                    "relationship_type": "storyboard-to-animation",
+                    "attributes": {}
+                },
+                {
+                    "hash": "ad29aaa694dfcfdb2774fe58a9415be0a300f58bd6473c5b3e8c8c72339d78eb",
+                    "relationship_type": "storyboard-to-animation",
+                    "attributes": {}
+                }
+            ],
+            "attributes": {}
+        },
+        {
+            "artefact_hash": "e8868f83d78c4dd00b8c37d481a326fe67556ed9b0225554ec766e90448f4bed",
+            "artefact_type": "video",
+            "evidence": [
+                {
+                    "hash": "7682d433d83f59b22e3a100a7b7daae9e4f39369c37058ea77af272f4759a098",
+                    "relationship_type": "animation-to-final",
+                    "attributes": {}
+                }
+            ],
+            "attributes": {}
+        }
+    ],
+    "provenance": {
+        "storyboard": {
+            "type": "storyboard",
+            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\sample\\storyboard.pdf",
+            "file_hash": {
+                "status": "computed",
+                "algorithm": "sha256",
+                "value": "81f1b1294656ea37bbe92e22943d1224ea85f34534ead364a2ace9445bf76dd0",
+                "bytes_hashed": 25538
+            },
+            "metadata": {
+                "status": "extracted",
+                "extractor": "PyMuPDF",
+                "values": {
+                    "file_size_bytes": 25538,
+                    "format": "PDF 1.4",
+                    "page_count": 4,
+                    "first_page_size": {
+                        "width_points": 320.0,
+                        "height_points": 180.0
+                    },
+                    "document_properties": {
+                        "title": "storyboard",
+                        "creationDate": "D:20260910032643Z",
+                        "modDate": "D:20260910032643Z"
+                    }
+                },
+                "warnings": []
+            },
+            "timestamps": {
+                "status": "extracted",
+                "filesystem": {
+                    "status": "extracted",
+                    "created_at": null,
+                    "modified_at": "2026-09-10T09:14:42+00:00",
+                    "metadata_changed_at": "2026-09-10T09:14:42+00:00"
+                },
+                "media": {
+                    "creation_time": "2026-09-10T03:26:43+00:00",
+                    "modification_time": "2026-09-10T03:26:43+00:00",
+                    "source": "PDF document properties"
+                },
+                "warnings": []
+            },
+            "c2pa_manifest": {
+                "status": "tool_unavailable",
+                "tool": "c2patool",
+                "tool_version": null,
+                "active_manifest": null,
+                "manifest_count": 0,
+                "manifest": null,
+                "validation_state": null,
+                "signature_valid": null,
+                "trusted": null,
+                "issuer": null,
+                "signed_at": null,
+                "certificate_serial_number": null,
+                "signature_algorithm": null,
+                "actions": [],
+                "ai_disclosure": {
+                    "present": false,
+                    "assertions": []
+                },
+                "ai_usage": {
+                    "classification": "not_disclosed",
+                    "ai_generated": false,
+                    "ai_modified": false,
+                    "digital_source_types": [],
+                    "creation_actions": [],
+                    "editing_actions": [],
+                    "modified_regions": []
+                },
+                "validation_successes": [],
+                "validation_errors": [
+                    "c2patool was not found on PATH"
+                ],
+                "validation_warnings": []
+            },
+            "software": {
+                "status": "not_identified",
+                "primary": null,
+                "candidates": [],
+                "warnings": [
+                    "No software identifier was found in metadata or C2PA data."
+                ]
+            },
+            "project_file": {
+                "status": "not_found",
+                "selected": null,
+                "candidates": [],
+                "warnings": [
+                    "No recognised project file was found under project_search_root."
+                ]
+            },
+            "editing_history": {
+                "status": "assembled",
+                "events": [
+                    {
+                        "time": "2026-09-10T03:26:43+00:00",
+                        "action": "media_declared_created",
+                        "source": "media.creation_time",
+                        "record_type": "declared",
+                        "description": "Creation timestamp embedded in the media metadata.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    },
+                    {
+                        "time": "2026-09-10T03:26:43+00:00",
+                        "action": "media_declared_modified",
+                        "source": "media.modification_time",
+                        "record_type": "declared",
+                        "description": "Modification timestamp embedded in the media metadata.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    },
+                    {
+                        "time": "2026-09-10T09:14:42+00:00",
+                        "action": "file_observed_modified",
+                        "source": "filesystem.modified_at",
+                        "record_type": "observed",
+                        "description": "Filesystem modification timestamp observed; this does not identify a specific editing action.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    }
+                ],
+                "event_count": 3,
+                "sources": [
+                    "filesystem.modified_at",
+                    "media.creation_time",
+                    "media.modification_time"
+                ],
+                "software_context": null,
+                "warnings": []
+            },
+            "provenance_summary": {
+                "assessment_model": "four_evidence_indicators_no_score_v1",
+                "assessment_interpretation": "Indicator availability and inspection details only; no authenticity score or probability is calculated.",
+                "status": "partial",
+                "available_indicator_count": 1,
+                "indicator_count": 4,
+                "coverage": "1/4",
+                "indicators": {
+                    "file_integrity": {
+                        "id": "file_integrity",
+                        "label": "File integrity and identity",
+                        "available": true,
+                        "status": "available",
+                        "reason": "A complete SHA-256 digest identifies the inspected file bytes.",
+                        "checks": [
+                            {
+                                "name": "sha256_computed",
+                                "result": true,
+                                "value": "81f1b1294656ea37bbe92e22943d1224ea85f34534ead364a2ace9445bf76dd0",
+                                "source": "file_hash",
+                                "explanation": "Checks whether a complete SHA-256 digest was produced for the inspected bytes."
+                            },
+                            {
+                                "name": "bytes_hashed",
+                                "result": true,
+                                "value": 25538,
+                                "source": "file_hash",
+                                "explanation": "Shows whether file bytes were actually read by the hashing process."
+                            }
+                        ]
+                    },
+                    "c2pa_provenance": {
+                        "id": "c2pa_provenance",
+                        "label": "Verified C2PA provenance",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No C2PA manifest was verified; absence does not prove fabrication.",
+                        "checks": [
+                            {
+                                "name": "manifest_present",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether a C2PA manifest was found."
+                            },
+                            {
+                                "name": "signature_valid",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks the result of the C2PA signature validation process."
+                            },
+                            {
+                                "name": "signing_credential_trusted",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether the signing credential is trusted; this is separate from cryptographic signature validity."
+                            },
+                            {
+                                "name": "no_validation_errors",
+                                "result": false,
+                                "value": 1,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether C2PA validation reported any errors."
+                            },
+                            {
+                                "name": "validation_warnings",
+                                "result": true,
+                                "value": 0,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether validation completed without warnings."
+                            }
+                        ]
+                    },
+                    "source_project": {
+                        "id": "source_project",
+                        "label": "Verified source-project evidence",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No source-project relationship has been explicitly verified.",
+                        "checks": [
+                            {
+                                "name": "candidate_found",
+                                "result": false,
+                                "value": 0,
+                                "source": "project_file",
+                                "explanation": "Checks whether a recognised source-project candidate was discovered."
+                            },
+                            {
+                                "name": "relationship_verified",
+                                "result": false,
+                                "value": 0,
+                                "source": "project_file",
+                                "explanation": "Requires explicit verification of the relationship between the project file and this output asset."
+                            },
+                            {
+                                "name": "project_hash_available",
+                                "result": false,
+                                "value": null,
+                                "source": "project_file",
+                                "explanation": "Checks whether a discovered project candidate has its own SHA-256 digest."
+                            }
+                        ]
+                    },
+                    "editing_ai_transparency": {
+                        "id": "editing_ai_transparency",
+                        "label": "Editing and AI-use transparency",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No C2PA actions or AI disclosure describe the creation or editing process.",
+                        "checks": [
+                            {
+                                "name": "c2pa_actions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.actions",
+                                "explanation": "Checks whether creation or editing actions were declared in C2PA."
+                            },
+                            {
+                                "name": "declared_history_events",
+                                "result": true,
+                                "value": 2,
+                                "source": "editing_history",
+                                "explanation": "Shows how many declared events were assembled into the evidence timeline."
+                            },
+                            {
+                                "name": "ai_disclosure_present",
+                                "result": false,
+                                "value": [],
+                                "source": "c2pa_manifest.ai_disclosure",
+                                "explanation": "Checks for a C2PA AI disclosure assertion."
+                            },
+                            {
+                                "name": "ai_generated_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-generated digital source type was declared."
+                            },
+                            {
+                                "name": "ai_modified_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-modified digital source type was declared."
+                            },
+                            {
+                                "name": "modified_regions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether affected regions were declared."
+                            },
+                            {
+                                "name": "timestamps_available",
+                                "result": true,
+                                "value": "extracted",
+                                "source": "timestamps",
+                                "explanation": "Shows whether timestamps were available as supporting context."
+                            },
+                            {
+                                "name": "software_identified",
+                                "result": false,
+                                "value": null,
+                                "source": "software",
+                                "explanation": "Shows whether software information was available as supporting context."
+                            },
+                            {
+                                "name": "metadata_extracted",
+                                "result": true,
+                                "value": "extracted",
+                                "source": "metadata",
+                                "explanation": "Shows whether metadata was extracted as supporting context."
+                            }
+                        ]
+                    }
+                },
+                "available_indicators": [
+                    "file_integrity"
+                ],
+                "conflicts": [],
+                "missing_indicators": [
+                    "c2pa_provenance",
+                    "source_project",
+                    "editing_ai_transparency"
+                ],
+                "warnings": []
+            }
+        },
+        "animatic": {
+            "type": "video",
+            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\sample\\animatic.mp4",
+            "file_hash": {
+                "status": "computed",
+                "algorithm": "sha256",
+                "value": "7682d433d83f59b22e3a100a7b7daae9e4f39369c37058ea77af272f4759a098",
+                "bytes_hashed": 7659
+            },
+            "metadata": {
+                "status": "partial",
+                "extractor": "OpenCV",
+                "values": {
+                    "file_size_bytes": 7659,
+                    "format": "mp4",
+                    "duration_seconds": 4.0,
+                    "video_stream": {
+                        "codec_tag": "h264",
+                        "width": 320,
+                        "height": 180,
+                        "fps": 1.0,
+                        "frame_count": 4
+                    }
+                },
+                "warnings": [
+                    "ffprobe was not found on PATH",
+                    "ffprobe unavailable or failed; metadata is limited to OpenCV fields"
+                ]
+            },
+            "timestamps": {
+                "status": "partial",
+                "filesystem": {
+                    "status": "extracted",
+                    "created_at": null,
+                    "modified_at": "2026-09-10T09:14:42+00:00",
+                    "metadata_changed_at": "2026-09-10T09:14:42+00:00"
+                },
+                "media": {
+                    "creation_time": null,
+                    "modification_time": null,
+                    "source": null
+                },
+                "warnings": [
+                    "No embedded media timestamp found"
+                ]
+            },
+            "c2pa_manifest": {
+                "status": "tool_unavailable",
+                "tool": "c2patool",
+                "tool_version": null,
+                "active_manifest": null,
+                "manifest_count": 0,
+                "manifest": null,
+                "validation_state": null,
+                "signature_valid": null,
+                "trusted": null,
+                "issuer": null,
+                "signed_at": null,
+                "certificate_serial_number": null,
+                "signature_algorithm": null,
+                "actions": [],
+                "ai_disclosure": {
+                    "present": false,
+                    "assertions": []
+                },
+                "ai_usage": {
+                    "classification": "not_disclosed",
+                    "ai_generated": false,
+                    "ai_modified": false,
+                    "digital_source_types": [],
+                    "creation_actions": [],
+                    "editing_actions": [],
+                    "modified_regions": []
+                },
+                "validation_successes": [],
+                "validation_errors": [
+                    "c2patool was not found on PATH"
+                ],
+                "validation_warnings": []
+            },
+            "software": {
+                "status": "not_identified",
+                "primary": null,
+                "candidates": [],
+                "warnings": [
+                    "No software identifier was found in metadata or C2PA data."
+                ]
+            },
+            "project_file": {
+                "status": "not_found",
+                "selected": null,
+                "candidates": [],
+                "warnings": [
+                    "No recognised project file was found under project_search_root."
+                ]
+            },
+            "editing_history": {
+                "status": "assembled",
+                "events": [
+                    {
+                        "time": "2026-09-10T09:14:42+00:00",
+                        "action": "file_observed_modified",
+                        "source": "filesystem.modified_at",
+                        "record_type": "observed",
+                        "description": "Filesystem modification timestamp observed; this does not identify a specific editing action.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    }
+                ],
+                "event_count": 1,
+                "sources": [
+                    "filesystem.modified_at"
+                ],
+                "software_context": null,
+                "warnings": []
+            },
+            "provenance_summary": {
+                "assessment_model": "four_evidence_indicators_no_score_v1",
+                "assessment_interpretation": "Indicator availability and inspection details only; no authenticity score or probability is calculated.",
+                "status": "partial",
+                "available_indicator_count": 1,
+                "indicator_count": 4,
+                "coverage": "1/4",
+                "indicators": {
+                    "file_integrity": {
+                        "id": "file_integrity",
+                        "label": "File integrity and identity",
+                        "available": true,
+                        "status": "available",
+                        "reason": "A complete SHA-256 digest identifies the inspected file bytes.",
+                        "checks": [
+                            {
+                                "name": "sha256_computed",
+                                "result": true,
+                                "value": "7682d433d83f59b22e3a100a7b7daae9e4f39369c37058ea77af272f4759a098",
+                                "source": "file_hash",
+                                "explanation": "Checks whether a complete SHA-256 digest was produced for the inspected bytes."
+                            },
+                            {
+                                "name": "bytes_hashed",
+                                "result": true,
+                                "value": 7659,
+                                "source": "file_hash",
+                                "explanation": "Shows whether file bytes were actually read by the hashing process."
+                            }
+                        ]
+                    },
+                    "c2pa_provenance": {
+                        "id": "c2pa_provenance",
+                        "label": "Verified C2PA provenance",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No C2PA manifest was verified; absence does not prove fabrication.",
+                        "checks": [
+                            {
+                                "name": "manifest_present",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether a C2PA manifest was found."
+                            },
+                            {
+                                "name": "signature_valid",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks the result of the C2PA signature validation process."
+                            },
+                            {
+                                "name": "signing_credential_trusted",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether the signing credential is trusted; this is separate from cryptographic signature validity."
+                            },
+                            {
+                                "name": "no_validation_errors",
+                                "result": false,
+                                "value": 1,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether C2PA validation reported any errors."
+                            },
+                            {
+                                "name": "validation_warnings",
+                                "result": true,
+                                "value": 0,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether validation completed without warnings."
+                            }
+                        ]
+                    },
+                    "source_project": {
+                        "id": "source_project",
+                        "label": "Verified source-project evidence",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No source-project relationship has been explicitly verified.",
+                        "checks": [
+                            {
+                                "name": "candidate_found",
+                                "result": false,
+                                "value": 0,
+                                "source": "project_file",
+                                "explanation": "Checks whether a recognised source-project candidate was discovered."
+                            },
+                            {
+                                "name": "relationship_verified",
+                                "result": false,
+                                "value": 0,
+                                "source": "project_file",
+                                "explanation": "Requires explicit verification of the relationship between the project file and this output asset."
+                            },
+                            {
+                                "name": "project_hash_available",
+                                "result": false,
+                                "value": null,
+                                "source": "project_file",
+                                "explanation": "Checks whether a discovered project candidate has its own SHA-256 digest."
+                            }
+                        ]
+                    },
+                    "editing_ai_transparency": {
+                        "id": "editing_ai_transparency",
+                        "label": "Editing and AI-use transparency",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No C2PA actions or AI disclosure describe the creation or editing process.",
+                        "checks": [
+                            {
+                                "name": "c2pa_actions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.actions",
+                                "explanation": "Checks whether creation or editing actions were declared in C2PA."
+                            },
+                            {
+                                "name": "declared_history_events",
+                                "result": false,
+                                "value": 0,
+                                "source": "editing_history",
+                                "explanation": "Shows how many declared events were assembled into the evidence timeline."
+                            },
+                            {
+                                "name": "ai_disclosure_present",
+                                "result": false,
+                                "value": [],
+                                "source": "c2pa_manifest.ai_disclosure",
+                                "explanation": "Checks for a C2PA AI disclosure assertion."
+                            },
+                            {
+                                "name": "ai_generated_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-generated digital source type was declared."
+                            },
+                            {
+                                "name": "ai_modified_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-modified digital source type was declared."
+                            },
+                            {
+                                "name": "modified_regions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether affected regions were declared."
+                            },
+                            {
+                                "name": "timestamps_available",
+                                "result": true,
+                                "value": "partial",
+                                "source": "timestamps",
+                                "explanation": "Shows whether timestamps were available as supporting context."
+                            },
+                            {
+                                "name": "software_identified",
+                                "result": false,
+                                "value": null,
+                                "source": "software",
+                                "explanation": "Shows whether software information was available as supporting context."
+                            },
+                            {
+                                "name": "metadata_extracted",
+                                "result": false,
+                                "value": "partial",
+                                "source": "metadata",
+                                "explanation": "Shows whether metadata was extracted as supporting context."
+                            }
+                        ]
+                    }
+                },
+                "available_indicators": [
+                    "file_integrity"
+                ],
+                "conflicts": [],
+                "missing_indicators": [
+                    "c2pa_provenance",
+                    "source_project",
+                    "editing_ai_transparency"
+                ],
+                "warnings": []
+            }
+        },
+        "final": {
+            "type": "video",
+            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\sample\\final.mp4",
+            "file_hash": {
+                "status": "computed",
+                "algorithm": "sha256",
+                "value": "e8868f83d78c4dd00b8c37d481a326fe67556ed9b0225554ec766e90448f4bed",
+                "bytes_hashed": 7155
+            },
+            "metadata": {
+                "status": "partial",
+                "extractor": "OpenCV",
+                "values": {
+                    "file_size_bytes": 7155,
+                    "format": "mp4",
+                    "duration_seconds": 4.0,
+                    "video_stream": {
+                        "codec_tag": "h264",
+                        "width": 320,
+                        "height": 180,
+                        "fps": 1.0,
+                        "frame_count": 4
+                    }
+                },
+                "warnings": [
+                    "ffprobe was not found on PATH",
+                    "ffprobe unavailable or failed; metadata is limited to OpenCV fields"
+                ]
+            },
+            "timestamps": {
+                "status": "partial",
+                "filesystem": {
+                    "status": "extracted",
+                    "created_at": null,
+                    "modified_at": "2026-09-10T09:14:42+00:00",
+                    "metadata_changed_at": "2026-09-10T09:14:42+00:00"
+                },
+                "media": {
+                    "creation_time": null,
+                    "modification_time": null,
+                    "source": null
+                },
+                "warnings": [
+                    "No embedded media timestamp found"
+                ]
+            },
+            "c2pa_manifest": {
+                "status": "tool_unavailable",
+                "tool": "c2patool",
+                "tool_version": null,
+                "active_manifest": null,
+                "manifest_count": 0,
+                "manifest": null,
+                "validation_state": null,
+                "signature_valid": null,
+                "trusted": null,
+                "issuer": null,
+                "signed_at": null,
+                "certificate_serial_number": null,
+                "signature_algorithm": null,
+                "actions": [],
+                "ai_disclosure": {
+                    "present": false,
+                    "assertions": []
+                },
+                "ai_usage": {
+                    "classification": "not_disclosed",
+                    "ai_generated": false,
+                    "ai_modified": false,
+                    "digital_source_types": [],
+                    "creation_actions": [],
+                    "editing_actions": [],
+                    "modified_regions": []
+                },
+                "validation_successes": [],
+                "validation_errors": [
+                    "c2patool was not found on PATH"
+                ],
+                "validation_warnings": []
+            },
+            "software": {
+                "status": "not_identified",
+                "primary": null,
+                "candidates": [],
+                "warnings": [
+                    "No software identifier was found in metadata or C2PA data."
+                ]
+            },
+            "project_file": {
+                "status": "not_found",
+                "selected": null,
+                "candidates": [],
+                "warnings": [
+                    "No recognised project file was found under project_search_root."
+                ]
+            },
+            "editing_history": {
+                "status": "assembled",
+                "events": [
+                    {
+                        "time": "2026-09-10T09:14:42+00:00",
+                        "action": "file_observed_modified",
+                        "source": "filesystem.modified_at",
+                        "record_type": "observed",
+                        "description": "Filesystem modification timestamp observed; this does not identify a specific editing action.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    }
+                ],
+                "event_count": 1,
+                "sources": [
+                    "filesystem.modified_at"
+                ],
+                "software_context": null,
+                "warnings": []
+            },
+            "provenance_summary": {
+                "assessment_model": "four_evidence_indicators_no_score_v1",
+                "assessment_interpretation": "Indicator availability and inspection details only; no authenticity score or probability is calculated.",
+                "status": "partial",
+                "available_indicator_count": 1,
+                "indicator_count": 4,
+                "coverage": "1/4",
+                "indicators": {
+                    "file_integrity": {
+                        "id": "file_integrity",
+                        "label": "File integrity and identity",
+                        "available": true,
+                        "status": "available",
+                        "reason": "A complete SHA-256 digest identifies the inspected file bytes.",
+                        "checks": [
+                            {
+                                "name": "sha256_computed",
+                                "result": true,
+                                "value": "e8868f83d78c4dd00b8c37d481a326fe67556ed9b0225554ec766e90448f4bed",
+                                "source": "file_hash",
+                                "explanation": "Checks whether a complete SHA-256 digest was produced for the inspected bytes."
+                            },
+                            {
+                                "name": "bytes_hashed",
+                                "result": true,
+                                "value": 7155,
+                                "source": "file_hash",
+                                "explanation": "Shows whether file bytes were actually read by the hashing process."
+                            }
+                        ]
+                    },
+                    "c2pa_provenance": {
+                        "id": "c2pa_provenance",
+                        "label": "Verified C2PA provenance",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No C2PA manifest was verified; absence does not prove fabrication.",
+                        "checks": [
+                            {
+                                "name": "manifest_present",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether a C2PA manifest was found."
+                            },
+                            {
+                                "name": "signature_valid",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks the result of the C2PA signature validation process."
+                            },
+                            {
+                                "name": "signing_credential_trusted",
+                                "result": false,
+                                "value": null,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether the signing credential is trusted; this is separate from cryptographic signature validity."
+                            },
+                            {
+                                "name": "no_validation_errors",
+                                "result": false,
+                                "value": 1,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether C2PA validation reported any errors."
+                            },
+                            {
+                                "name": "validation_warnings",
+                                "result": true,
+                                "value": 0,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether validation completed without warnings."
+                            }
+                        ]
+                    },
+                    "source_project": {
+                        "id": "source_project",
+                        "label": "Verified source-project evidence",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No source-project relationship has been explicitly verified.",
+                        "checks": [
+                            {
+                                "name": "candidate_found",
+                                "result": false,
+                                "value": 0,
+                                "source": "project_file",
+                                "explanation": "Checks whether a recognised source-project candidate was discovered."
+                            },
+                            {
+                                "name": "relationship_verified",
+                                "result": false,
+                                "value": 0,
+                                "source": "project_file",
+                                "explanation": "Requires explicit verification of the relationship between the project file and this output asset."
+                            },
+                            {
+                                "name": "project_hash_available",
+                                "result": false,
+                                "value": null,
+                                "source": "project_file",
+                                "explanation": "Checks whether a discovered project candidate has its own SHA-256 digest."
+                            }
+                        ]
+                    },
+                    "editing_ai_transparency": {
+                        "id": "editing_ai_transparency",
+                        "label": "Editing and AI-use transparency",
+                        "available": false,
+                        "status": "not_available",
+                        "reason": "No C2PA actions or AI disclosure describe the creation or editing process.",
+                        "checks": [
+                            {
+                                "name": "c2pa_actions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.actions",
+                                "explanation": "Checks whether creation or editing actions were declared in C2PA."
+                            },
+                            {
+                                "name": "declared_history_events",
+                                "result": false,
+                                "value": 0,
+                                "source": "editing_history",
+                                "explanation": "Shows how many declared events were assembled into the evidence timeline."
+                            },
+                            {
+                                "name": "ai_disclosure_present",
+                                "result": false,
+                                "value": [],
+                                "source": "c2pa_manifest.ai_disclosure",
+                                "explanation": "Checks for a C2PA AI disclosure assertion."
+                            },
+                            {
+                                "name": "ai_generated_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-generated digital source type was declared."
+                            },
+                            {
+                                "name": "ai_modified_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-modified digital source type was declared."
+                            },
+                            {
+                                "name": "modified_regions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether affected regions were declared."
+                            },
+                            {
+                                "name": "timestamps_available",
+                                "result": true,
+                                "value": "partial",
+                                "source": "timestamps",
+                                "explanation": "Shows whether timestamps were available as supporting context."
+                            },
+                            {
+                                "name": "software_identified",
+                                "result": false,
+                                "value": null,
+                                "source": "software",
+                                "explanation": "Shows whether software information was available as supporting context."
+                            },
+                            {
+                                "name": "metadata_extracted",
+                                "result": false,
+                                "value": "partial",
+                                "source": "metadata",
+                                "explanation": "Shows whether metadata was extracted as supporting context."
+                            }
+                        ]
+                    }
+                },
+                "available_indicators": [
+                    "file_integrity"
+                ],
+                "conflicts": [],
+                "missing_indicators": [
+                    "c2pa_provenance",
+                    "source_project",
+                    "editing_ai_transparency"
+                ],
+                "warnings": []
+            }
+        }
+    },
+    "provenance_authenticity_evidence": {
+        "storyboard": {
+            "File Integrity": "available",
+            "C2PA Provenance": "not_available",
+            "Source Project Evidence": "not_available",
+            "Editing / AI Transparency": "not_available"
+        },
+        "animatic": {
+            "File Integrity": "available",
+            "C2PA Provenance": "not_available",
+            "Source Project Evidence": "not_available",
+            "Editing / AI Transparency": "not_available"
+        },
+        "final": {
+            "File Integrity": "available",
+            "C2PA Provenance": "not_available",
+            "Source Project Evidence": "not_available",
+            "Editing / AI Transparency": "not_available"
+        }
+    }
+}

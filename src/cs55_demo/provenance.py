@@ -878,6 +878,129 @@ def _validation_summary(report, active_manifest, entries, errors):
     return validation_state, signature_valid, trusted
 
 
+def _parse_c2pa_report(
+    report,
+    result,
+    tool,
+    tool_version,
+    stderr='',
+    returncode=0,
+):
+    active_label = report.get('active_manifest')
+    manifests = report.get('manifests', {})
+    if not isinstance(manifests, dict):
+        manifests = {}
+    if not active_label and not manifests:
+        return {
+            **result,
+            'tool': tool,
+            'status': 'no_manifest',
+            'tool_version': tool_version,
+            'validation_warnings': [stderr] if stderr else [],
+        }
+
+    active_manifest = manifests.get(active_label, {})
+    if not isinstance(active_manifest, dict):
+        active_manifest = {}
+
+    entries = _collect_validation_entries(report, active_manifest)
+    successes, errors, warnings = _classify_validation_entries(entries)
+    if returncode != 0 and not errors:
+        errors.append({
+            'code': f'{tool}.nonzero_exit',
+            'message': stderr or f'Exit code {returncode}',
+        })
+    elif stderr:
+        warnings.append({'message': stderr})
+
+    validation_state, signature_valid, trusted = _validation_summary(
+        report,
+        active_manifest,
+        entries,
+        errors,
+    )
+    signature = _extract_signature_information(active_manifest)
+    actions = extract_c2pa_actions(active_manifest)
+    ai_disclosure = extract_ai_disclosures(active_manifest)
+    ai_usage = interpret_ai_actions(actions, ai_disclosure)
+
+    if errors:
+        status = 'invalid'
+    elif signature_valid is True:
+        status = 'verified'
+    else:
+        status = 'present_unverified'
+
+    return {
+        **result,
+        'tool': tool,
+        'status': status,
+        'tool_version': tool_version,
+        'active_manifest': active_label,
+        'manifest_count': len(manifests),
+        'manifest': active_manifest,
+        'validation_state': validation_state,
+        'signature_valid': signature_valid,
+        'trusted': trusted,
+        **signature,
+        'actions': actions,
+        'ai_disclosure': ai_disclosure,
+        'ai_usage': ai_usage,
+        'validation_successes': successes,
+        'validation_errors': errors,
+        'validation_warnings': warnings,
+    }
+
+
+def _inspect_c2pa_python(path, result):
+    try:
+        import c2pa
+    except ImportError:
+        return {
+            **result,
+            'status': 'tool_unavailable',
+            'validation_errors': [
+                'Neither c2patool nor the c2pa-python package is available'
+            ],
+        }
+
+    try:
+        with c2pa.Reader(path) as reader:
+            report = json.loads(reader.json())
+        return _parse_c2pa_report(
+            report,
+            result,
+            tool='c2pa-python',
+            tool_version=c2pa.sdk_version(),
+        )
+    except Exception as error:
+        message = str(error)
+        lowered = message.lower()
+        if any(term in lowered for term in C2PA_NO_MANIFEST_MESSAGES):
+            return {
+                **result,
+                'tool': 'c2pa-python',
+                'status': 'no_manifest',
+                'tool_version': c2pa.sdk_version(),
+                'validation_warnings': [message],
+            }
+        if any(term in lowered for term in C2PA_UNSUPPORTED_MESSAGES):
+            return {
+                **result,
+                'tool': 'c2pa-python',
+                'status': 'unsupported_format',
+                'tool_version': c2pa.sdk_version(),
+                'validation_warnings': [message],
+            }
+        return {
+            **result,
+            'tool': 'c2pa-python',
+            'status': 'read_error',
+            'tool_version': c2pa.sdk_version(),
+            'validation_errors': [message],
+        }
+
+
 def inspect_c2pa(file_path, timeout_seconds=120, executable=None):
     """Read C2PA evidence without converting its presence into a score."""
     path = Path(file_path)
@@ -898,11 +1021,7 @@ def inspect_c2pa(file_path, timeout_seconds=120, executable=None):
 
     c2patool_path = executable or shutil.which('c2patool')
     if not c2patool_path:
-        return {
-            **result,
-            'status': 'tool_unavailable',
-            'validation_errors': ['c2patool was not found on PATH'],
-        }
+        return _inspect_c2pa_python(path, result)
 
     tool_version = None
     try:
@@ -989,68 +1108,14 @@ def inspect_c2pa(file_path, timeout_seconds=120, executable=None):
             'validation_errors': ['c2patool JSON root is not an object'],
         }
 
-    active_label = report.get('active_manifest')
-    manifests = report.get('manifests', {})
-    if not isinstance(manifests, dict):
-        manifests = {}
-    if not active_label and not manifests:
-        return {
-            **result,
-            'status': 'no_manifest',
-            'tool_version': tool_version,
-            'validation_warnings': [stderr] if stderr else [],
-        }
-
-    active_manifest = manifests.get(active_label, {})
-    if not isinstance(active_manifest, dict):
-        active_manifest = {}
-
-    entries = _collect_validation_entries(report, active_manifest)
-    successes, errors, warnings = _classify_validation_entries(entries)
-    if completed.returncode != 0 and not errors:
-        errors.append({
-            'code': 'c2patool.nonzero_exit',
-            'message': stderr or f'Exit code {completed.returncode}',
-        })
-    elif stderr:
-        warnings.append({'message': stderr})
-
-    validation_state, signature_valid, trusted = _validation_summary(
+    return _parse_c2pa_report(
         report,
-        active_manifest,
-        entries,
-        errors,
+        result,
+        tool='c2patool',
+        tool_version=tool_version,
+        stderr=stderr,
+        returncode=completed.returncode,
     )
-    signature = _extract_signature_information(active_manifest)
-    actions = extract_c2pa_actions(active_manifest)
-    ai_disclosure = extract_ai_disclosures(active_manifest)
-    ai_usage = interpret_ai_actions(actions, ai_disclosure)
-
-    if errors:
-        status = 'invalid'
-    elif signature_valid is True:
-        status = 'verified'
-    else:
-        status = 'present_unverified'
-
-    return {
-        **result,
-        'status': status,
-        'tool_version': tool_version,
-        'active_manifest': active_label,
-        'manifest_count': len(manifests),
-        'manifest': active_manifest,
-        'validation_state': validation_state,
-        'signature_valid': signature_valid,
-        'trusted': trusted,
-        **signature,
-        'actions': actions,
-        'ai_disclosure': ai_disclosure,
-        'ai_usage': ai_usage,
-        'validation_successes': successes,
-        'validation_errors': errors,
-        'validation_warnings': warnings,
-    }
 
 
 def add_software_candidate(candidates, name, source, version=None):
@@ -1355,7 +1420,7 @@ def collect_project_file_evidence(config):
             search_status = 'searched'
             candidates = discover_project_files(root)
 
-    return {
+    evidence = {
         asset_name: associate_project_files(
             asset_name,
             candidates,
@@ -1363,6 +1428,10 @@ def collect_project_file_evidence(config):
         )
         for asset_name in ASSET_TYPES
     }
+    if config.get('source_project_paths'):
+        from .source_project import add_explicit_project_evidence
+        return add_explicit_project_evidence(config, evidence)
+    return evidence
 
 
 def editing_history_event(

@@ -27,4 +27,13 @@ def load_config(config_path):
             value = (base / value).resolve()
         data[key] = value
 
+    for mapping in ('source_project_paths', 'source_project_unsigned_paths'):
+        if mapping not in data:
+            continue
+        if not isinstance(data[mapping], dict):
+            raise ValueError(f'{mapping} must be an object')
+        data[mapping] = {
+            key: (Path(value) if Path(value).is_absolute() else (base / value).resolve())
+            for key, value in data[mapping].items()
+        }
     return data

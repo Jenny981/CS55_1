@@ -1,0 +1,1828 @@
+{
+    "dataset_name": "umbrella_combined_test",
+    "evidence_chain": {
+        "artefact_count": 6,
+        "relationship_count": 5
+    },
+    "provenance": {
+        "storyboard": {
+            "type": "storyboard",
+            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\storyboard.pdf",
+            "file_hash": {
+                "status": "computed",
+                "algorithm": "sha256",
+                "value": "912ea3f1f386970a7e8fe965b225b140d72fc69fcea532dee8a0c6dc194b403f",
+                "bytes_hashed": 4062919
+            },
+            "metadata": {
+                "status": "extracted",
+                "extractor": "PyMuPDF",
+                "values": {
+                    "file_size_bytes": 4062919,
+                    "format": "PDF 1.7",
+                    "page_count": 4,
+                    "first_page_size": {
+                        "width_points": 960.0,
+                        "height_points": 540.0
+                    },
+                    "document_properties": {
+                        "title": "Umbrella controlled storyboard export",
+                        "subject": "CS55_TEST_FIXTURE_NOT_LUMINA",
+                        "creator": "CS55 test PDF project"
+                    }
+                },
+                "warnings": []
+            },
+            "timestamps": {
+                "status": "partial",
+                "filesystem": {
+                    "status": "extracted",
+                    "created_at": null,
+                    "modified_at": "2026-10-11T02:05:11.252552+00:00",
+                    "metadata_changed_at": "2026-10-11T02:05:11.181324+00:00"
+                },
+                "media": {
+                    "creation_time": null,
+                    "modification_time": null,
+                    "source": "PDF document properties"
+                },
+                "warnings": [
+                    "No embedded media timestamp found"
+                ]
+            },
+            "c2pa_manifest": {
+                "status": "verified",
+                "tool": "c2pa-python",
+                "tool_version": "0.91.0",
+                "active_manifest": "urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a",
+                "manifest_count": 1,
+                "manifest": {
+                    "claim_generator_info": [
+                        {
+                            "name": "CS55 CONTROLLED TEST SIGNER",
+                            "version": "1.0",
+                            "org.contentauth.c2pa_rs": "0.91.0"
+                        }
+                    ],
+                    "title": "Umbrella storyboard: new test derivative, NOT Lumina-issued",
+                    "instance_id": "xmp.iid:b4ebc3ef-2859-409d-999c-14a400bf8c26",
+                    "assertions": [
+                        {
+                            "label": "c2pa.actions.v2",
+                            "data": {
+                                "actions": [
+                                    {
+                                        "action": "c2pa.created",
+                                        "softwareAgent": "CS55 controlled reproducible test exporter",
+                                        "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "org.cs55.export_binding",
+                            "data": {
+                                "asset_role": "storyboard",
+                                "project_sha256": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d",
+                                "schema": "cs55-export-binding/v1",
+                                "unsigned_export_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf"
+                            }
+                        },
+                        {
+                            "label": "org.cs55.test_context",
+                            "data": {
+                                "ai_disclosure_basis": "Test creator declaration about existing AI source assets",
+                                "production_history_verified": false,
+                                "signer_is_lumina": false,
+                                "test_fixture": true
+                            }
+                        }
+                    ],
+                    "signature_info": {
+                        "alg": "Es256",
+                        "issuer": "C2PA Test Signing Cert",
+                        "common_name": "C2PA Signer",
+                        "cert_serial_number": "640229841392226413189608867977836244731148734950"
+                    },
+                    "label": "urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a",
+                    "claim_version": 2
+                },
+                "validation_state": "Valid",
+                "signature_valid": true,
+                "trusted": false,
+                "issuer": "C2PA Test Signing Cert",
+                "signed_at": null,
+                "certificate_serial_number": "640229841392226413189608867977836244731148734950",
+                "signature_algorithm": "Es256",
+                "actions": [
+                    {
+                        "action": "c2pa.created",
+                        "softwareAgent": "CS55 controlled reproducible test exporter",
+                        "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history."
+                    }
+                ],
+                "ai_disclosure": {
+                    "present": false,
+                    "assertions": []
+                },
+                "ai_usage": {
+                    "classification": "ai_generated",
+                    "ai_generated": true,
+                    "ai_modified": false,
+                    "digital_source_types": [
+                        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+                    ],
+                    "creation_actions": [
+                        {
+                            "action": "c2pa.created",
+                            "when": null,
+                            "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history.",
+                            "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                            "software_agent": "CS55 controlled reproducible test exporter",
+                            "software_agent_index": null,
+                            "parameters": {}
+                        }
+                    ],
+                    "editing_actions": [],
+                    "modified_regions": []
+                },
+                "validation_successes": [
+                    {
+                        "code": "claimSignature.insideValidity",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.signature",
+                        "explanation": "claim signature valid"
+                    },
+                    {
+                        "code": "claimSignature.validated",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.signature",
+                        "explanation": "claim signature valid"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.assertions/c2pa.hash.data",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.hash.data"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.assertions/c2pa.actions.v2",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.actions.v2"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.assertions/org.cs55.export_binding",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/org.cs55.export_binding"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.assertions/org.cs55.test_context",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/org.cs55.test_context"
+                    },
+                    {
+                        "code": "assertion.dataHash.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.assertions/c2pa.hash.data",
+                        "explanation": "data hash valid"
+                    }
+                ],
+                "validation_errors": [],
+                "validation_warnings": [
+                    {
+                        "code": "signingCredential.untrusted",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.signature",
+                        "explanation": "signing certificate untrusted"
+                    },
+                    {
+                        "code": "signingCredential.ocsp.skipped",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a/c2pa.signature",
+                        "explanation": "OCSP fetching skipped"
+                    }
+                ]
+            },
+            "software": {
+                "status": "identified",
+                "primary": {
+                    "name": "CS55 CONTROLLED TEST SIGNER",
+                    "version": "1.0",
+                    "source": "c2pa.manifest.claim_generator_info"
+                },
+                "candidates": [
+                    {
+                        "name": "CS55 CONTROLLED TEST SIGNER",
+                        "version": "1.0",
+                        "source": "c2pa.manifest.claim_generator_info"
+                    },
+                    {
+                        "name": "CS55 controlled reproducible test exporter",
+                        "version": null,
+                        "source": "c2pa.actions[0].softwareAgent"
+                    },
+                    {
+                        "name": "CS55 test PDF project",
+                        "version": null,
+                        "source": "pdf.document_properties.creator"
+                    }
+                ],
+                "warnings": [
+                    "Software identifiers are self-reported metadata and do not independently prove authenticity."
+                ]
+            },
+            "project_file": {
+                "status": "found",
+                "selected": {
+                    "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\storyboard.cs55project.json",
+                    "name": "storyboard.cs55project.json",
+                    "extension": ".cs55project.json",
+                    "possible_roles": [
+                        "storyboard"
+                    ],
+                    "relationship": "reproducible_export_project",
+                    "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                    "relationship_verified": true,
+                    "verification": {
+                        "status": "verified",
+                        "relationship_verified": true,
+                        "method": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                        "scope": "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked.",
+                        "production_history_verified": false,
+                        "project_sha256": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d",
+                        "output_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf",
+                        "source_sha256_list": [
+                            "cd3a2d675b0c665cb54a23f849b4af30f7a1ce21f56586dabadd6836ff312f19",
+                            "2620889c5fb12ce5211ea142ae33260b95f52cdcca03577ddcbe49a93e8d2d02",
+                            "941fc7480fd9d8302518b6828a5967e23d70b584c53e7860c7627691a2d99edc",
+                            "b377ef0a1450aa0b8b3b3e21db834a0ca8749740cc5b21041b3331571bcb55b8"
+                        ],
+                        "panel_count": 4,
+                        "reexport_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf",
+                        "signer_trusted": false,
+                        "decoded_visual_match": true,
+                        "signed_output_sha256": "912ea3f1f386970a7e8fe965b225b140d72fc69fcea532dee8a0c6dc194b403f",
+                        "signed_export_binding": {
+                            "schema": "cs55-export-binding/v1",
+                            "asset_role": "storyboard",
+                            "project_sha256": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d",
+                            "unsigned_export_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf"
+                        }
+                    },
+                    "file_hash": {
+                        "status": "computed",
+                        "algorithm": "sha256",
+                        "value": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d"
+                    }
+                },
+                "candidates": [
+                    {
+                        "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\storyboard.cs55project.json",
+                        "name": "storyboard.cs55project.json",
+                        "extension": ".cs55project.json",
+                        "possible_roles": [
+                            "storyboard"
+                        ],
+                        "relationship": "reproducible_export_project",
+                        "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                        "relationship_verified": true,
+                        "verification": {
+                            "status": "verified",
+                            "relationship_verified": true,
+                            "method": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                            "scope": "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked.",
+                            "production_history_verified": false,
+                            "project_sha256": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d",
+                            "output_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf",
+                            "source_sha256_list": [
+                                "cd3a2d675b0c665cb54a23f849b4af30f7a1ce21f56586dabadd6836ff312f19",
+                                "2620889c5fb12ce5211ea142ae33260b95f52cdcca03577ddcbe49a93e8d2d02",
+                                "941fc7480fd9d8302518b6828a5967e23d70b584c53e7860c7627691a2d99edc",
+                                "b377ef0a1450aa0b8b3b3e21db834a0ca8749740cc5b21041b3331571bcb55b8"
+                            ],
+                            "panel_count": 4,
+                            "reexport_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf",
+                            "signer_trusted": false,
+                            "decoded_visual_match": true,
+                            "signed_output_sha256": "912ea3f1f386970a7e8fe965b225b140d72fc69fcea532dee8a0c6dc194b403f",
+                            "signed_export_binding": {
+                                "schema": "cs55-export-binding/v1",
+                                "asset_role": "storyboard",
+                                "project_sha256": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d",
+                                "unsigned_export_sha256": "363dd5493631c6f81314aca181bed336f6ff5c4d63ded8de6e395f75677df5cf"
+                            }
+                        },
+                        "file_hash": {
+                            "status": "computed",
+                            "algorithm": "sha256",
+                            "value": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d"
+                        }
+                    }
+                ],
+                "warnings": [
+                    "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked."
+                ]
+            },
+            "editing_history": {
+                "status": "assembled",
+                "events": [
+                    {
+                        "time": "2026-10-11T02:05:11.252552+00:00",
+                        "action": "file_observed_modified",
+                        "source": "filesystem.modified_at",
+                        "record_type": "observed",
+                        "description": "Filesystem modification timestamp observed; this does not identify a specific editing action.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    },
+                    {
+                        "time": null,
+                        "action": "c2pa.created",
+                        "source": "c2pa.actions",
+                        "record_type": "declared",
+                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history.",
+                        "software": "CS55 controlled reproducible test exporter",
+                        "regions": [],
+                        "verified": true,
+                        "evidence": {
+                            "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                            "parameters": {},
+                            "manifest_trusted": false
+                        }
+                    },
+                    {
+                        "time": null,
+                        "action": "potential_project_source_associated",
+                        "source": "project_file.discovery",
+                        "record_type": "inferred",
+                        "description": "A possible source project file was associated by file extension and asset role; the relationship is not verified.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\storyboard.cs55project.json",
+                            "file_hash": {
+                                "status": "computed",
+                                "algorithm": "sha256",
+                                "value": "2429ab3934772247ae9d646a95f3e445269d1188518c000cfb6446b77713a26d"
+                            },
+                            "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match"
+                        }
+                    }
+                ],
+                "event_count": 3,
+                "sources": [
+                    "c2pa.actions",
+                    "filesystem.modified_at",
+                    "project_file.discovery"
+                ],
+                "software_context": {
+                    "name": "CS55 CONTROLLED TEST SIGNER",
+                    "version": "1.0",
+                    "source": "c2pa.manifest.claim_generator_info"
+                },
+                "warnings": [
+                    "Project-file associations are inferred candidates, not confirmed editing events."
+                ]
+            },
+            "provenance_summary": {
+                "assessment_model": "four_evidence_indicators_no_score_v1",
+                "assessment_interpretation": "Indicator availability and inspection details only; no authenticity score or probability is calculated.",
+                "status": "complete",
+                "available_indicator_count": 4,
+                "indicator_count": 4,
+                "coverage": "4/4",
+                "indicators": {
+                    "file_integrity": {
+                        "id": "file_integrity",
+                        "label": "File integrity and identity",
+                        "available": true,
+                        "status": "available",
+                        "reason": "A complete SHA-256 digest identifies the inspected file bytes.",
+                        "checks": [
+                            {
+                                "name": "sha256_computed",
+                                "result": true,
+                                "value": "912ea3f1f386970a7e8fe965b225b140d72fc69fcea532dee8a0c6dc194b403f",
+                                "source": "file_hash",
+                                "explanation": "Checks whether a complete SHA-256 digest was produced for the inspected bytes."
+                            },
+                            {
+                                "name": "bytes_hashed",
+                                "result": true,
+                                "value": 4062919,
+                                "source": "file_hash",
+                                "explanation": "Shows whether file bytes were actually read by the hashing process."
+                            }
+                        ]
+                    },
+                    "c2pa_provenance": {
+                        "id": "c2pa_provenance",
+                        "label": "Verified C2PA provenance",
+                        "available": true,
+                        "status": "available",
+                        "reason": "The active C2PA manifest passed signature validation; credential trust is reported separately.",
+                        "checks": [
+                            {
+                                "name": "manifest_present",
+                                "result": true,
+                                "value": "urn:c2pa:54a74a50-955e-463a-bad2-0c137bdf703a",
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether a C2PA manifest was found."
+                            },
+                            {
+                                "name": "signature_valid",
+                                "result": true,
+                                "value": true,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks the result of the C2PA signature validation process."
+                            },
+                            {
+                                "name": "signing_credential_trusted",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether the signing credential is trusted; this is separate from cryptographic signature validity."
+                            },
+                            {
+                                "name": "no_validation_errors",
+                                "result": true,
+                                "value": 0,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether C2PA validation reported any errors."
+                            },
+                            {
+                                "name": "validation_warnings",
+                                "result": false,
+                                "value": 2,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether validation completed without warnings."
+                            }
+                        ]
+                    },
+                    "source_project": {
+                        "id": "source_project",
+                        "label": "Verified source-project evidence",
+                        "available": true,
+                        "status": "available",
+                        "reason": "At least one source-project relationship was explicitly verified.",
+                        "checks": [
+                            {
+                                "name": "candidate_found",
+                                "result": true,
+                                "value": 1,
+                                "source": "project_file",
+                                "explanation": "Checks whether a recognised source-project candidate was discovered."
+                            },
+                            {
+                                "name": "relationship_verified",
+                                "result": true,
+                                "value": 1,
+                                "source": "project_file",
+                                "explanation": "Requires explicit verification of the relationship between the project file and this output asset."
+                            },
+                            {
+                                "name": "project_hash_available",
+                                "result": true,
+                                "value": null,
+                                "source": "project_file",
+                                "explanation": "Checks whether a discovered project candidate has its own SHA-256 digest."
+                            }
+                        ]
+                    },
+                    "editing_ai_transparency": {
+                        "id": "editing_ai_transparency",
+                        "label": "Editing and AI-use transparency",
+                        "available": true,
+                        "status": "available",
+                        "reason": "C2PA actions and/or an AI disclosure describe the creation or editing process.",
+                        "checks": [
+                            {
+                                "name": "c2pa_actions_present",
+                                "result": true,
+                                "value": 1,
+                                "source": "c2pa_manifest.actions",
+                                "explanation": "Checks whether creation or editing actions were declared in C2PA."
+                            },
+                            {
+                                "name": "declared_history_events",
+                                "result": true,
+                                "value": 1,
+                                "source": "editing_history",
+                                "explanation": "Shows how many declared events were assembled into the evidence timeline."
+                            },
+                            {
+                                "name": "ai_disclosure_present",
+                                "result": false,
+                                "value": [],
+                                "source": "c2pa_manifest.ai_disclosure",
+                                "explanation": "Checks for a C2PA AI disclosure assertion."
+                            },
+                            {
+                                "name": "ai_generated_declared",
+                                "result": true,
+                                "value": true,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-generated digital source type was declared."
+                            },
+                            {
+                                "name": "ai_modified_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-modified digital source type was declared."
+                            },
+                            {
+                                "name": "modified_regions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether affected regions were declared."
+                            },
+                            {
+                                "name": "timestamps_available",
+                                "result": true,
+                                "value": "partial",
+                                "source": "timestamps",
+                                "explanation": "Shows whether timestamps were available as supporting context."
+                            },
+                            {
+                                "name": "software_identified",
+                                "result": true,
+                                "value": {
+                                    "name": "CS55 CONTROLLED TEST SIGNER",
+                                    "version": "1.0",
+                                    "source": "c2pa.manifest.claim_generator_info"
+                                },
+                                "source": "software",
+                                "explanation": "Shows whether software information was available as supporting context."
+                            },
+                            {
+                                "name": "metadata_extracted",
+                                "result": true,
+                                "value": "extracted",
+                                "source": "metadata",
+                                "explanation": "Shows whether metadata was extracted as supporting context."
+                            }
+                        ]
+                    }
+                },
+                "available_indicators": [
+                    "file_integrity",
+                    "c2pa_provenance",
+                    "source_project",
+                    "editing_ai_transparency"
+                ],
+                "conflicts": [],
+                "missing_indicators": [],
+                "warnings": [
+                    "An AI-related digitalSourceType is present without a c2pa.ai-disclosure assertion."
+                ]
+            }
+        },
+        "animatic": {
+            "type": "video",
+            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\animatic.mp4",
+            "file_hash": {
+                "status": "computed",
+                "algorithm": "sha256",
+                "value": "72bc80019db833e9df0c96510d3349535da2217b12c6c4305c5941f6e23e9eda",
+                "bytes_hashed": 3824504
+            },
+            "metadata": {
+                "status": "partial",
+                "extractor": "OpenCV",
+                "values": {
+                    "file_size_bytes": 3824504,
+                    "format": "mp4",
+                    "duration_seconds": 9.958333333333334,
+                    "video_stream": {
+                        "codec_tag": "h264",
+                        "width": 1280,
+                        "height": 720,
+                        "fps": 24.0,
+                        "frame_count": 239
+                    }
+                },
+                "warnings": [
+                    "ffprobe was not found on PATH",
+                    "ffprobe unavailable or failed; metadata is limited to OpenCV fields"
+                ]
+            },
+            "timestamps": {
+                "status": "partial",
+                "filesystem": {
+                    "status": "extracted",
+                    "created_at": null,
+                    "modified_at": "2026-10-11T02:05:19.877805+00:00",
+                    "metadata_changed_at": "2026-10-11T02:05:19.863124+00:00"
+                },
+                "media": {
+                    "creation_time": null,
+                    "modification_time": null,
+                    "source": null
+                },
+                "warnings": [
+                    "No embedded media timestamp found"
+                ]
+            },
+            "c2pa_manifest": {
+                "status": "verified",
+                "tool": "c2pa-python",
+                "tool_version": "0.91.0",
+                "active_manifest": "urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1",
+                "manifest_count": 1,
+                "manifest": {
+                    "claim_generator_info": [
+                        {
+                            "name": "CS55 CONTROLLED TEST SIGNER",
+                            "version": "1.0",
+                            "org.contentauth.c2pa_rs": "0.91.0"
+                        }
+                    ],
+                    "title": "Umbrella animatic: new test derivative, NOT Lumina-issued",
+                    "instance_id": "xmp.iid:72b71a67-8f0a-4a51-9523-443b7991eb28",
+                    "assertions": [
+                        {
+                            "label": "c2pa.hash.bmff.v3",
+                            "data": {
+                                "exclusions": [
+                                    {
+                                        "xpath": "/uuid",
+                                        "data": [
+                                            {
+                                                "offset": 8,
+                                                "value": "2P7D1hsOSDySl1goh37EgQ=="
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "xpath": "/ftyp"
+                                    },
+                                    {
+                                        "xpath": "/mfra"
+                                    },
+                                    {
+                                        "xpath": "/free"
+                                    },
+                                    {
+                                        "xpath": "/skip"
+                                    }
+                                ],
+                                "alg": "sha256",
+                                "hash": "M7sRman+VrGIo7pJ9EoSEa0rrx20w4u4sFUm4CtJvnI=",
+                                "name": "jumbf manifest"
+                            },
+                            "created": true
+                        },
+                        {
+                            "label": "c2pa.actions.v2",
+                            "data": {
+                                "actions": [
+                                    {
+                                        "action": "c2pa.created",
+                                        "softwareAgent": "CS55 controlled reproducible test exporter",
+                                        "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "org.cs55.export_binding",
+                            "data": {
+                                "asset_role": "animatic",
+                                "project_sha256": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08",
+                                "schema": "cs55-export-binding/v1",
+                                "unsigned_export_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056"
+                            }
+                        },
+                        {
+                            "label": "org.cs55.test_context",
+                            "data": {
+                                "ai_disclosure_basis": "Test creator declaration about existing AI source assets",
+                                "production_history_verified": false,
+                                "signer_is_lumina": false,
+                                "test_fixture": true
+                            }
+                        }
+                    ],
+                    "signature_info": {
+                        "alg": "Es256",
+                        "issuer": "C2PA Test Signing Cert",
+                        "common_name": "C2PA Signer",
+                        "cert_serial_number": "640229841392226413189608867977836244731148734950"
+                    },
+                    "label": "urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1",
+                    "claim_version": 2
+                },
+                "validation_state": "Valid",
+                "signature_valid": true,
+                "trusted": false,
+                "issuer": "C2PA Test Signing Cert",
+                "signed_at": null,
+                "certificate_serial_number": "640229841392226413189608867977836244731148734950",
+                "signature_algorithm": "Es256",
+                "actions": [
+                    {
+                        "action": "c2pa.created",
+                        "softwareAgent": "CS55 controlled reproducible test exporter",
+                        "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history."
+                    }
+                ],
+                "ai_disclosure": {
+                    "present": false,
+                    "assertions": []
+                },
+                "ai_usage": {
+                    "classification": "ai_generated",
+                    "ai_generated": true,
+                    "ai_modified": false,
+                    "digital_source_types": [
+                        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+                    ],
+                    "creation_actions": [
+                        {
+                            "action": "c2pa.created",
+                            "when": null,
+                            "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history.",
+                            "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                            "software_agent": "CS55 controlled reproducible test exporter",
+                            "software_agent_index": null,
+                            "parameters": {}
+                        }
+                    ],
+                    "editing_actions": [],
+                    "modified_regions": []
+                },
+                "validation_successes": [
+                    {
+                        "code": "claimSignature.insideValidity",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.signature",
+                        "explanation": "claim signature valid"
+                    },
+                    {
+                        "code": "claimSignature.validated",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.signature",
+                        "explanation": "claim signature valid"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.assertions/c2pa.hash.bmff.v3",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.hash.bmff.v3"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.assertions/c2pa.actions.v2",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.actions.v2"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.assertions/org.cs55.export_binding",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/org.cs55.export_binding"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.assertions/org.cs55.test_context",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/org.cs55.test_context"
+                    },
+                    {
+                        "code": "assertion.bmffHash.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.assertions/c2pa.hash.bmff.v3",
+                        "explanation": "BMFF hash valid"
+                    }
+                ],
+                "validation_errors": [],
+                "validation_warnings": [
+                    {
+                        "code": "signingCredential.untrusted",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.signature",
+                        "explanation": "signing certificate untrusted"
+                    },
+                    {
+                        "code": "signingCredential.ocsp.skipped",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.signature",
+                        "explanation": "OCSP fetching skipped"
+                    },
+                    {
+                        "code": "assertion.bmffHash.additionalExclusionsPresent",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1/c2pa.assertions/c2pa.hash.bmff.v3",
+                        "explanation": "extra BMFF hash exclusion(s) found"
+                    }
+                ]
+            },
+            "software": {
+                "status": "identified",
+                "primary": {
+                    "name": "CS55 CONTROLLED TEST SIGNER",
+                    "version": "1.0",
+                    "source": "c2pa.manifest.claim_generator_info"
+                },
+                "candidates": [
+                    {
+                        "name": "CS55 CONTROLLED TEST SIGNER",
+                        "version": "1.0",
+                        "source": "c2pa.manifest.claim_generator_info"
+                    },
+                    {
+                        "name": "CS55 controlled reproducible test exporter",
+                        "version": null,
+                        "source": "c2pa.actions[0].softwareAgent"
+                    }
+                ],
+                "warnings": [
+                    "Software identifiers are self-reported metadata and do not independently prove authenticity."
+                ]
+            },
+            "project_file": {
+                "status": "found",
+                "selected": {
+                    "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\animatic.cs55project.json",
+                    "name": "animatic.cs55project.json",
+                    "extension": ".cs55project.json",
+                    "possible_roles": [
+                        "animatic"
+                    ],
+                    "relationship": "reproducible_export_project",
+                    "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                    "relationship_verified": true,
+                    "verification": {
+                        "status": "verified",
+                        "relationship_verified": true,
+                        "method": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                        "scope": "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked.",
+                        "production_history_verified": false,
+                        "project_sha256": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08",
+                        "output_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056",
+                        "source_sha256": "a9824b6abf27c7f0b7e5d3329af1a1b48f183e84d3caa0df6173cd00c2e15aad",
+                        "clip_count": 4,
+                        "reexport_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056",
+                        "signer_trusted": false,
+                        "decoded_visual_match": true,
+                        "signed_output_sha256": "72bc80019db833e9df0c96510d3349535da2217b12c6c4305c5941f6e23e9eda",
+                        "signed_export_binding": {
+                            "schema": "cs55-export-binding/v1",
+                            "asset_role": "animatic",
+                            "project_sha256": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08",
+                            "unsigned_export_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056"
+                        }
+                    },
+                    "file_hash": {
+                        "status": "computed",
+                        "algorithm": "sha256",
+                        "value": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08"
+                    }
+                },
+                "candidates": [
+                    {
+                        "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\animatic.cs55project.json",
+                        "name": "animatic.cs55project.json",
+                        "extension": ".cs55project.json",
+                        "possible_roles": [
+                            "animatic"
+                        ],
+                        "relationship": "reproducible_export_project",
+                        "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                        "relationship_verified": true,
+                        "verification": {
+                            "status": "verified",
+                            "relationship_verified": true,
+                            "method": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                            "scope": "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked.",
+                            "production_history_verified": false,
+                            "project_sha256": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08",
+                            "output_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056",
+                            "source_sha256": "a9824b6abf27c7f0b7e5d3329af1a1b48f183e84d3caa0df6173cd00c2e15aad",
+                            "clip_count": 4,
+                            "reexport_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056",
+                            "signer_trusted": false,
+                            "decoded_visual_match": true,
+                            "signed_output_sha256": "72bc80019db833e9df0c96510d3349535da2217b12c6c4305c5941f6e23e9eda",
+                            "signed_export_binding": {
+                                "schema": "cs55-export-binding/v1",
+                                "asset_role": "animatic",
+                                "project_sha256": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08",
+                                "unsigned_export_sha256": "9aba5c5c509c1596f7499cc003232f13b1d5a75acfe3b0a3dc7c33ff12155056"
+                            }
+                        },
+                        "file_hash": {
+                            "status": "computed",
+                            "algorithm": "sha256",
+                            "value": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08"
+                        }
+                    }
+                ],
+                "warnings": [
+                    "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked."
+                ]
+            },
+            "editing_history": {
+                "status": "assembled",
+                "events": [
+                    {
+                        "time": "2026-10-11T02:05:19.877805+00:00",
+                        "action": "file_observed_modified",
+                        "source": "filesystem.modified_at",
+                        "record_type": "observed",
+                        "description": "Filesystem modification timestamp observed; this does not identify a specific editing action.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    },
+                    {
+                        "time": null,
+                        "action": "c2pa.created",
+                        "source": "c2pa.actions",
+                        "record_type": "declared",
+                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history.",
+                        "software": "CS55 controlled reproducible test exporter",
+                        "regions": [],
+                        "verified": true,
+                        "evidence": {
+                            "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                            "parameters": {},
+                            "manifest_trusted": false
+                        }
+                    },
+                    {
+                        "time": null,
+                        "action": "potential_project_source_associated",
+                        "source": "project_file.discovery",
+                        "record_type": "inferred",
+                        "description": "A possible source project file was associated by file extension and asset role; the relationship is not verified.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\animatic.cs55project.json",
+                            "file_hash": {
+                                "status": "computed",
+                                "algorithm": "sha256",
+                                "value": "fe85b2fa46f27d78fc0971be9b4f10b4ed210b515879fa26559d021eee51db08"
+                            },
+                            "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match"
+                        }
+                    }
+                ],
+                "event_count": 3,
+                "sources": [
+                    "c2pa.actions",
+                    "filesystem.modified_at",
+                    "project_file.discovery"
+                ],
+                "software_context": {
+                    "name": "CS55 CONTROLLED TEST SIGNER",
+                    "version": "1.0",
+                    "source": "c2pa.manifest.claim_generator_info"
+                },
+                "warnings": [
+                    "Project-file associations are inferred candidates, not confirmed editing events."
+                ]
+            },
+            "provenance_summary": {
+                "assessment_model": "four_evidence_indicators_no_score_v1",
+                "assessment_interpretation": "Indicator availability and inspection details only; no authenticity score or probability is calculated.",
+                "status": "complete",
+                "available_indicator_count": 4,
+                "indicator_count": 4,
+                "coverage": "4/4",
+                "indicators": {
+                    "file_integrity": {
+                        "id": "file_integrity",
+                        "label": "File integrity and identity",
+                        "available": true,
+                        "status": "available",
+                        "reason": "A complete SHA-256 digest identifies the inspected file bytes.",
+                        "checks": [
+                            {
+                                "name": "sha256_computed",
+                                "result": true,
+                                "value": "72bc80019db833e9df0c96510d3349535da2217b12c6c4305c5941f6e23e9eda",
+                                "source": "file_hash",
+                                "explanation": "Checks whether a complete SHA-256 digest was produced for the inspected bytes."
+                            },
+                            {
+                                "name": "bytes_hashed",
+                                "result": true,
+                                "value": 3824504,
+                                "source": "file_hash",
+                                "explanation": "Shows whether file bytes were actually read by the hashing process."
+                            }
+                        ]
+                    },
+                    "c2pa_provenance": {
+                        "id": "c2pa_provenance",
+                        "label": "Verified C2PA provenance",
+                        "available": true,
+                        "status": "available",
+                        "reason": "The active C2PA manifest passed signature validation; credential trust is reported separately.",
+                        "checks": [
+                            {
+                                "name": "manifest_present",
+                                "result": true,
+                                "value": "urn:c2pa:bc3ccda9-aeb4-497d-ad43-d8e7f2db67a1",
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether a C2PA manifest was found."
+                            },
+                            {
+                                "name": "signature_valid",
+                                "result": true,
+                                "value": true,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks the result of the C2PA signature validation process."
+                            },
+                            {
+                                "name": "signing_credential_trusted",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether the signing credential is trusted; this is separate from cryptographic signature validity."
+                            },
+                            {
+                                "name": "no_validation_errors",
+                                "result": true,
+                                "value": 0,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether C2PA validation reported any errors."
+                            },
+                            {
+                                "name": "validation_warnings",
+                                "result": false,
+                                "value": 3,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether validation completed without warnings."
+                            }
+                        ]
+                    },
+                    "source_project": {
+                        "id": "source_project",
+                        "label": "Verified source-project evidence",
+                        "available": true,
+                        "status": "available",
+                        "reason": "At least one source-project relationship was explicitly verified.",
+                        "checks": [
+                            {
+                                "name": "candidate_found",
+                                "result": true,
+                                "value": 1,
+                                "source": "project_file",
+                                "explanation": "Checks whether a recognised source-project candidate was discovered."
+                            },
+                            {
+                                "name": "relationship_verified",
+                                "result": true,
+                                "value": 1,
+                                "source": "project_file",
+                                "explanation": "Requires explicit verification of the relationship between the project file and this output asset."
+                            },
+                            {
+                                "name": "project_hash_available",
+                                "result": true,
+                                "value": null,
+                                "source": "project_file",
+                                "explanation": "Checks whether a discovered project candidate has its own SHA-256 digest."
+                            }
+                        ]
+                    },
+                    "editing_ai_transparency": {
+                        "id": "editing_ai_transparency",
+                        "label": "Editing and AI-use transparency",
+                        "available": true,
+                        "status": "available",
+                        "reason": "C2PA actions and/or an AI disclosure describe the creation or editing process.",
+                        "checks": [
+                            {
+                                "name": "c2pa_actions_present",
+                                "result": true,
+                                "value": 1,
+                                "source": "c2pa_manifest.actions",
+                                "explanation": "Checks whether creation or editing actions were declared in C2PA."
+                            },
+                            {
+                                "name": "declared_history_events",
+                                "result": true,
+                                "value": 1,
+                                "source": "editing_history",
+                                "explanation": "Shows how many declared events were assembled into the evidence timeline."
+                            },
+                            {
+                                "name": "ai_disclosure_present",
+                                "result": false,
+                                "value": [],
+                                "source": "c2pa_manifest.ai_disclosure",
+                                "explanation": "Checks for a C2PA AI disclosure assertion."
+                            },
+                            {
+                                "name": "ai_generated_declared",
+                                "result": true,
+                                "value": true,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-generated digital source type was declared."
+                            },
+                            {
+                                "name": "ai_modified_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-modified digital source type was declared."
+                            },
+                            {
+                                "name": "modified_regions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether affected regions were declared."
+                            },
+                            {
+                                "name": "timestamps_available",
+                                "result": true,
+                                "value": "partial",
+                                "source": "timestamps",
+                                "explanation": "Shows whether timestamps were available as supporting context."
+                            },
+                            {
+                                "name": "software_identified",
+                                "result": true,
+                                "value": {
+                                    "name": "CS55 CONTROLLED TEST SIGNER",
+                                    "version": "1.0",
+                                    "source": "c2pa.manifest.claim_generator_info"
+                                },
+                                "source": "software",
+                                "explanation": "Shows whether software information was available as supporting context."
+                            },
+                            {
+                                "name": "metadata_extracted",
+                                "result": false,
+                                "value": "partial",
+                                "source": "metadata",
+                                "explanation": "Shows whether metadata was extracted as supporting context."
+                            }
+                        ]
+                    }
+                },
+                "available_indicators": [
+                    "file_integrity",
+                    "c2pa_provenance",
+                    "source_project",
+                    "editing_ai_transparency"
+                ],
+                "conflicts": [],
+                "missing_indicators": [],
+                "warnings": [
+                    "An AI-related digitalSourceType is present without a c2pa.ai-disclosure assertion."
+                ]
+            }
+        },
+        "final": {
+            "type": "video",
+            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\final.mp4",
+            "file_hash": {
+                "status": "computed",
+                "algorithm": "sha256",
+                "value": "f814c734061666a08e225e1022142912c89dfa82091009c7f4f65ad7567d47b0",
+                "bytes_hashed": 4753210
+            },
+            "metadata": {
+                "status": "partial",
+                "extractor": "OpenCV",
+                "values": {
+                    "file_size_bytes": 4753210,
+                    "format": "mp4",
+                    "duration_seconds": 9.958333333333334,
+                    "video_stream": {
+                        "codec_tag": "h264",
+                        "width": 1280,
+                        "height": 720,
+                        "fps": 24.0,
+                        "frame_count": 239
+                    }
+                },
+                "warnings": [
+                    "ffprobe was not found on PATH",
+                    "ffprobe unavailable or failed; metadata is limited to OpenCV fields"
+                ]
+            },
+            "timestamps": {
+                "status": "partial",
+                "filesystem": {
+                    "status": "extracted",
+                    "created_at": null,
+                    "modified_at": "2026-10-11T02:05:30.512019+00:00",
+                    "metadata_changed_at": "2026-10-11T02:05:30.497714+00:00"
+                },
+                "media": {
+                    "creation_time": null,
+                    "modification_time": null,
+                    "source": null
+                },
+                "warnings": [
+                    "No embedded media timestamp found"
+                ]
+            },
+            "c2pa_manifest": {
+                "status": "verified",
+                "tool": "c2pa-python",
+                "tool_version": "0.91.0",
+                "active_manifest": "urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e",
+                "manifest_count": 1,
+                "manifest": {
+                    "claim_generator_info": [
+                        {
+                            "name": "CS55 CONTROLLED TEST SIGNER",
+                            "version": "1.0",
+                            "org.contentauth.c2pa_rs": "0.91.0"
+                        }
+                    ],
+                    "title": "Umbrella final: new test derivative, NOT Lumina-issued",
+                    "instance_id": "xmp.iid:04e6d689-8c51-4895-9ce2-b2ebcab51603",
+                    "assertions": [
+                        {
+                            "label": "c2pa.hash.bmff.v3",
+                            "data": {
+                                "exclusions": [
+                                    {
+                                        "xpath": "/uuid",
+                                        "data": [
+                                            {
+                                                "offset": 8,
+                                                "value": "2P7D1hsOSDySl1goh37EgQ=="
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "xpath": "/ftyp"
+                                    },
+                                    {
+                                        "xpath": "/mfra"
+                                    },
+                                    {
+                                        "xpath": "/free"
+                                    },
+                                    {
+                                        "xpath": "/skip"
+                                    }
+                                ],
+                                "alg": "sha256",
+                                "hash": "WaoUbMlmF4NKzYPWxpIX2qKLSIUTPbofOfKMy4Q2zbE=",
+                                "name": "jumbf manifest"
+                            },
+                            "created": true
+                        },
+                        {
+                            "label": "c2pa.actions.v2",
+                            "data": {
+                                "actions": [
+                                    {
+                                        "action": "c2pa.created",
+                                        "softwareAgent": "CS55 controlled reproducible test exporter",
+                                        "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history."
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "org.cs55.export_binding",
+                            "data": {
+                                "asset_role": "final",
+                                "project_sha256": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28",
+                                "schema": "cs55-export-binding/v1",
+                                "unsigned_export_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e"
+                            }
+                        },
+                        {
+                            "label": "org.cs55.test_context",
+                            "data": {
+                                "ai_disclosure_basis": "Test creator declaration about existing AI source assets",
+                                "production_history_verified": false,
+                                "signer_is_lumina": false,
+                                "test_fixture": true
+                            }
+                        }
+                    ],
+                    "signature_info": {
+                        "alg": "Es256",
+                        "issuer": "C2PA Test Signing Cert",
+                        "common_name": "C2PA Signer",
+                        "cert_serial_number": "640229841392226413189608867977836244731148734950"
+                    },
+                    "label": "urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e",
+                    "claim_version": 2
+                },
+                "validation_state": "Valid",
+                "signature_valid": true,
+                "trusted": false,
+                "issuer": "C2PA Test Signing Cert",
+                "signed_at": null,
+                "certificate_serial_number": "640229841392226413189608867977836244731148734950",
+                "signature_algorithm": "Es256",
+                "actions": [
+                    {
+                        "action": "c2pa.created",
+                        "softwareAgent": "CS55 controlled reproducible test exporter",
+                        "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history."
+                    }
+                ],
+                "ai_disclosure": {
+                    "present": false,
+                    "assertions": []
+                },
+                "ai_usage": {
+                    "classification": "ai_generated",
+                    "ai_generated": true,
+                    "ai_modified": false,
+                    "digital_source_types": [
+                        "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+                    ],
+                    "creation_actions": [
+                        {
+                            "action": "c2pa.created",
+                            "when": null,
+                            "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history.",
+                            "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                            "software_agent": "CS55 controlled reproducible test exporter",
+                            "software_agent_index": null,
+                            "parameters": {}
+                        }
+                    ],
+                    "editing_actions": [],
+                    "modified_regions": []
+                },
+                "validation_successes": [
+                    {
+                        "code": "claimSignature.insideValidity",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.signature",
+                        "explanation": "claim signature valid"
+                    },
+                    {
+                        "code": "claimSignature.validated",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.signature",
+                        "explanation": "claim signature valid"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.assertions/c2pa.hash.bmff.v3",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.hash.bmff.v3"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.assertions/c2pa.actions.v2",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.actions.v2"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.assertions/org.cs55.export_binding",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/org.cs55.export_binding"
+                    },
+                    {
+                        "code": "assertion.hashedURI.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.assertions/org.cs55.test_context",
+                        "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/org.cs55.test_context"
+                    },
+                    {
+                        "code": "assertion.bmffHash.match",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.assertions/c2pa.hash.bmff.v3",
+                        "explanation": "BMFF hash valid"
+                    }
+                ],
+                "validation_errors": [],
+                "validation_warnings": [
+                    {
+                        "code": "signingCredential.untrusted",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.signature",
+                        "explanation": "signing certificate untrusted"
+                    },
+                    {
+                        "code": "signingCredential.ocsp.skipped",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.signature",
+                        "explanation": "OCSP fetching skipped"
+                    },
+                    {
+                        "code": "assertion.bmffHash.additionalExclusionsPresent",
+                        "url": "self#jumbf=/c2pa/urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e/c2pa.assertions/c2pa.hash.bmff.v3",
+                        "explanation": "extra BMFF hash exclusion(s) found"
+                    }
+                ]
+            },
+            "software": {
+                "status": "identified",
+                "primary": {
+                    "name": "CS55 CONTROLLED TEST SIGNER",
+                    "version": "1.0",
+                    "source": "c2pa.manifest.claim_generator_info"
+                },
+                "candidates": [
+                    {
+                        "name": "CS55 CONTROLLED TEST SIGNER",
+                        "version": "1.0",
+                        "source": "c2pa.manifest.claim_generator_info"
+                    },
+                    {
+                        "name": "CS55 controlled reproducible test exporter",
+                        "version": null,
+                        "source": "c2pa.actions[0].softwareAgent"
+                    }
+                ],
+                "warnings": [
+                    "Software identifiers are self-reported metadata and do not independently prove authenticity."
+                ]
+            },
+            "project_file": {
+                "status": "found",
+                "selected": {
+                    "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\final.cs55project.json",
+                    "name": "final.cs55project.json",
+                    "extension": ".cs55project.json",
+                    "possible_roles": [
+                        "final"
+                    ],
+                    "relationship": "reproducible_export_project",
+                    "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                    "relationship_verified": true,
+                    "verification": {
+                        "status": "verified",
+                        "relationship_verified": true,
+                        "method": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                        "scope": "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked.",
+                        "production_history_verified": false,
+                        "project_sha256": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28",
+                        "output_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e",
+                        "source_sha256": "0efc3150b6e95f5ba6803258cd35323146f5db912b0f69d87cf7e4cc913bbea9",
+                        "clip_count": 4,
+                        "reexport_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e",
+                        "signer_trusted": false,
+                        "decoded_visual_match": true,
+                        "signed_output_sha256": "f814c734061666a08e225e1022142912c89dfa82091009c7f4f65ad7567d47b0",
+                        "signed_export_binding": {
+                            "schema": "cs55-export-binding/v1",
+                            "asset_role": "final",
+                            "project_sha256": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28",
+                            "unsigned_export_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e"
+                        }
+                    },
+                    "file_hash": {
+                        "status": "computed",
+                        "algorithm": "sha256",
+                        "value": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28"
+                    }
+                },
+                "candidates": [
+                    {
+                        "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\final.cs55project.json",
+                        "name": "final.cs55project.json",
+                        "extension": ".cs55project.json",
+                        "possible_roles": [
+                            "final"
+                        ],
+                        "relationship": "reproducible_export_project",
+                        "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                        "relationship_verified": true,
+                        "verification": {
+                            "status": "verified",
+                            "relationship_verified": true,
+                            "method": "reexport_and_verified_c2pa_export_binding_and_visual_match",
+                            "scope": "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked.",
+                            "production_history_verified": false,
+                            "project_sha256": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28",
+                            "output_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e",
+                            "source_sha256": "0efc3150b6e95f5ba6803258cd35323146f5db912b0f69d87cf7e4cc913bbea9",
+                            "clip_count": 4,
+                            "reexport_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e",
+                            "signer_trusted": false,
+                            "decoded_visual_match": true,
+                            "signed_output_sha256": "f814c734061666a08e225e1022142912c89dfa82091009c7f4f65ad7567d47b0",
+                            "signed_export_binding": {
+                                "schema": "cs55-export-binding/v1",
+                                "asset_role": "final",
+                                "project_sha256": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28",
+                                "unsigned_export_sha256": "ca3c87929e3b2ed613008d99e4d82f881a1528e18700c53ede42fb537317626e"
+                            }
+                        },
+                        "file_hash": {
+                            "status": "computed",
+                            "algorithm": "sha256",
+                            "value": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28"
+                        }
+                    }
+                ],
+                "warnings": [
+                    "Reproducible test export and signed association with unchanged decoded pictures; not original Lumina projects or authenticated production history. Audio is not checked."
+                ]
+            },
+            "editing_history": {
+                "status": "assembled",
+                "events": [
+                    {
+                        "time": "2026-10-11T02:05:30.512019+00:00",
+                        "action": "file_observed_modified",
+                        "source": "filesystem.modified_at",
+                        "record_type": "observed",
+                        "description": "Filesystem modification timestamp observed; this does not identify a specific editing action.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "timestamp_only": true,
+                            "is_edit_proof": false
+                        }
+                    },
+                    {
+                        "time": null,
+                        "action": "c2pa.created",
+                        "source": "c2pa.actions",
+                        "record_type": "declared",
+                        "description": "Test derivative exported from AI-generated source materials. Not an independently authenticated original production history.",
+                        "software": "CS55 controlled reproducible test exporter",
+                        "regions": [],
+                        "verified": true,
+                        "evidence": {
+                            "digital_source_type": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                            "parameters": {},
+                            "manifest_trusted": false
+                        }
+                    },
+                    {
+                        "time": null,
+                        "action": "potential_project_source_associated",
+                        "source": "project_file.discovery",
+                        "record_type": "inferred",
+                        "description": "A possible source project file was associated by file extension and asset role; the relationship is not verified.",
+                        "software": null,
+                        "regions": [],
+                        "verified": false,
+                        "evidence": {
+                            "path": "C:\\Users\\nspcs\\Desktop\\CS55_1_demo\\data\\umbrella_combined_test\\final.cs55project.json",
+                            "file_hash": {
+                                "status": "computed",
+                                "algorithm": "sha256",
+                                "value": "c778d6becd29d2531b031a664ae3080e75048e1d29ca927c4682f1eaf3c4ab28"
+                            },
+                            "relationship_basis": "reexport_and_verified_c2pa_export_binding_and_visual_match"
+                        }
+                    }
+                ],
+                "event_count": 3,
+                "sources": [
+                    "c2pa.actions",
+                    "filesystem.modified_at",
+                    "project_file.discovery"
+                ],
+                "software_context": {
+                    "name": "CS55 CONTROLLED TEST SIGNER",
+                    "version": "1.0",
+                    "source": "c2pa.manifest.claim_generator_info"
+                },
+                "warnings": [
+                    "Project-file associations are inferred candidates, not confirmed editing events."
+                ]
+            },
+            "provenance_summary": {
+                "assessment_model": "four_evidence_indicators_no_score_v1",
+                "assessment_interpretation": "Indicator availability and inspection details only; no authenticity score or probability is calculated.",
+                "status": "complete",
+                "available_indicator_count": 4,
+                "indicator_count": 4,
+                "coverage": "4/4",
+                "indicators": {
+                    "file_integrity": {
+                        "id": "file_integrity",
+                        "label": "File integrity and identity",
+                        "available": true,
+                        "status": "available",
+                        "reason": "A complete SHA-256 digest identifies the inspected file bytes.",
+                        "checks": [
+                            {
+                                "name": "sha256_computed",
+                                "result": true,
+                                "value": "f814c734061666a08e225e1022142912c89dfa82091009c7f4f65ad7567d47b0",
+                                "source": "file_hash",
+                                "explanation": "Checks whether a complete SHA-256 digest was produced for the inspected bytes."
+                            },
+                            {
+                                "name": "bytes_hashed",
+                                "result": true,
+                                "value": 4753210,
+                                "source": "file_hash",
+                                "explanation": "Shows whether file bytes were actually read by the hashing process."
+                            }
+                        ]
+                    },
+                    "c2pa_provenance": {
+                        "id": "c2pa_provenance",
+                        "label": "Verified C2PA provenance",
+                        "available": true,
+                        "status": "available",
+                        "reason": "The active C2PA manifest passed signature validation; credential trust is reported separately.",
+                        "checks": [
+                            {
+                                "name": "manifest_present",
+                                "result": true,
+                                "value": "urn:c2pa:0451709e-2f34-47c8-a564-2aa426da459e",
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether a C2PA manifest was found."
+                            },
+                            {
+                                "name": "signature_valid",
+                                "result": true,
+                                "value": true,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks the result of the C2PA signature validation process."
+                            },
+                            {
+                                "name": "signing_credential_trusted",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether the signing credential is trusted; this is separate from cryptographic signature validity."
+                            },
+                            {
+                                "name": "no_validation_errors",
+                                "result": true,
+                                "value": 0,
+                                "source": "c2pa_manifest",
+                                "explanation": "Checks whether C2PA validation reported any errors."
+                            },
+                            {
+                                "name": "validation_warnings",
+                                "result": false,
+                                "value": 3,
+                                "source": "c2pa_manifest",
+                                "explanation": "Reports whether validation completed without warnings."
+                            }
+                        ]
+                    },
+                    "source_project": {
+                        "id": "source_project",
+                        "label": "Verified source-project evidence",
+                        "available": true,
+                        "status": "available",
+                        "reason": "At least one source-project relationship was explicitly verified.",
+                        "checks": [
+                            {
+                                "name": "candidate_found",
+                                "result": true,
+                                "value": 1,
+                                "source": "project_file",
+                                "explanation": "Checks whether a recognised source-project candidate was discovered."
+                            },
+                            {
+                                "name": "relationship_verified",
+                                "result": true,
+                                "value": 1,
+                                "source": "project_file",
+                                "explanation": "Requires explicit verification of the relationship between the project file and this output asset."
+                            },
+                            {
+                                "name": "project_hash_available",
+                                "result": true,
+                                "value": null,
+                                "source": "project_file",
+                                "explanation": "Checks whether a discovered project candidate has its own SHA-256 digest."
+                            }
+                        ]
+                    },
+                    "editing_ai_transparency": {
+                        "id": "editing_ai_transparency",
+                        "label": "Editing and AI-use transparency",
+                        "available": true,
+                        "status": "available",
+                        "reason": "C2PA actions and/or an AI disclosure describe the creation or editing process.",
+                        "checks": [
+                            {
+                                "name": "c2pa_actions_present",
+                                "result": true,
+                                "value": 1,
+                                "source": "c2pa_manifest.actions",
+                                "explanation": "Checks whether creation or editing actions were declared in C2PA."
+                            },
+                            {
+                                "name": "declared_history_events",
+                                "result": true,
+                                "value": 1,
+                                "source": "editing_history",
+                                "explanation": "Shows how many declared events were assembled into the evidence timeline."
+                            },
+                            {
+                                "name": "ai_disclosure_present",
+                                "result": false,
+                                "value": [],
+                                "source": "c2pa_manifest.ai_disclosure",
+                                "explanation": "Checks for a C2PA AI disclosure assertion."
+                            },
+                            {
+                                "name": "ai_generated_declared",
+                                "result": true,
+                                "value": true,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-generated digital source type was declared."
+                            },
+                            {
+                                "name": "ai_modified_declared",
+                                "result": false,
+                                "value": false,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether an AI-modified digital source type was declared."
+                            },
+                            {
+                                "name": "modified_regions_present",
+                                "result": false,
+                                "value": 0,
+                                "source": "c2pa_manifest.ai_usage",
+                                "explanation": "Reports whether affected regions were declared."
+                            },
+                            {
+                                "name": "timestamps_available",
+                                "result": true,
+                                "value": "partial",
+                                "source": "timestamps",
+                                "explanation": "Shows whether timestamps were available as supporting context."
+                            },
+                            {
+                                "name": "software_identified",
+                                "result": true,
+                                "value": {
+                                    "name": "CS55 CONTROLLED TEST SIGNER",
+                                    "version": "1.0",
+                                    "source": "c2pa.manifest.claim_generator_info"
+                                },
+                                "source": "software",
+                                "explanation": "Shows whether software information was available as supporting context."
+                            },
+                            {
+                                "name": "metadata_extracted",
+                                "result": false,
+                                "value": "partial",
+                                "source": "metadata",
+                                "explanation": "Shows whether metadata was extracted as supporting context."
+                            }
+                        ]
+                    }
+                },
+                "available_indicators": [
+                    "file_integrity",
+                    "c2pa_provenance",
+                    "source_project",
+                    "editing_ai_transparency"
+                ],
+                "conflicts": [],
+                "missing_indicators": [],
+                "warnings": [
+                    "An AI-related digitalSourceType is present without a c2pa.ai-disclosure assertion."
+                ]
+            }
+        }
+    },
+    "provenance_authenticity_evidence": {
+        "storyboard": {
+            "File Integrity": "available",
+            "C2PA Provenance": "available",
+            "Source Project Evidence": "available",
+            "Editing / AI Transparency": "available"
+        },
+        "animatic": {
+            "File Integrity": "available",
+            "C2PA Provenance": "available",
+            "Source Project Evidence": "available",
+            "Editing / AI Transparency": "available"
+        },
+        "final": {
+            "File Integrity": "available",
+            "C2PA Provenance": "available",
+            "Source Project Evidence": "available",
+            "Editing / AI Transparency": "available"
+        }
+    },
+    "chain_metrics": {
+        "coherence": 0.9152110442519188,
+        "confidence": 0.977010115981102,
+        "coverage": 0.75,
+        "completeness": 0.625
+    },
+    "stage_metrics": {
+        "storyboard_to_animation_similarity": 0.9096621721982956,
+        "animation_to_final_similarity": 0.920759916305542
+    },
+    "coverage_breakdown": {
+        "animatic_coverage": 1.0,
+        "final_coverage": 0.5,
+        "used_animatic_shots": 1,
+        "total_animatic_shots": 1,
+        "used_final_shots": 1,
+        "total_final_shots": 2
+    },
+    "test_context": {
+        "test_fixture": true,
+        "signer_is_lumina": false,
+        "production_history_verified": false,
+        "warning": "Public development test certificate, not a trusted commercial signer. New recipes using original Lumina outputs as inputs, not recovered original projects. All available does not prove an authentic historical cross-stage chain.",
+        "audio_checked": false
+    }
+}

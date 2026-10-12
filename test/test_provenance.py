@@ -91,9 +91,18 @@ class ProvenanceTests(unittest.TestCase):
 
             if asset_name == 'storyboard':
                 self.assertEqual(asset['software']['status'], 'not_identified')
-            else:
+            elif asset['metadata']['extractor'] == 'ffprobe':
                 self.assertEqual(asset['software']['status'], 'identified')
                 self.assertTrue(asset['software']['candidates'])
+            else:
+                self.assertEqual(
+                    asset['software']['status'],
+                    'not_identified',
+                )
+                self.assertIn(
+                    'ffprobe was not found on PATH',
+                    asset['metadata']['warnings'],
+                )
             self.assertEqual(asset['project_file']['status'], 'not_found')
             self.assertEqual(asset['editing_history']['status'], 'assembled')
             self.assertGreater(asset['editing_history']['event_count'], 0)

@@ -83,10 +83,6 @@ def run_full_pipeline(config, use_cache=True, cache_path=None, embedder=None):
             'artefact_count': len(evidence_chain.artefacts),
             'relationship_count': relationship_count,
         },
-        'final_score': {
-            'integrity': float(final_score.integrity),
-            'completeness': float(final_score.completeness),
-        },
         'provenance': provenance,
         'provenance_authenticity_evidence': (
             provenance_authenticity_evidence
