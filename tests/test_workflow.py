@@ -12,6 +12,7 @@ from cs55_demo.automatic import allowed_evidence, validate_ranges, select_top1, 
 from cs55_demo.system import (load_config, retrieve, apply_reviews,
                               apply_panel_review, save_json, _scores)
 from cs55_demo.provenance_scoring import timestamp_comparisons
+from web_server import cache_summary, clear_generated_cache
 
 
 class FakeEncoder:
@@ -23,6 +24,24 @@ class FakeEncoder:
 
 
 class WorkflowTests(unittest.TestCase):
+    def test_cache_clear_removes_only_generated_children(self):
+        with tempfile.TemporaryDirectory() as directory:
+            workspace = Path(directory)
+            source = workspace / "source.mov"
+            source.write_bytes(b"original")
+            outputs = workspace / "outputs"
+            (outputs / "run_001" / "frames").mkdir(parents=True)
+            (outputs / "run_001" / "frames" / "frame.png").write_bytes(b"frame")
+            (outputs / "upload.mov").write_bytes(b"upload")
+
+            self.assertEqual(cache_summary(outputs)["files"], 2)
+            removed = clear_generated_cache(outputs)
+
+            self.assertEqual(removed["files"], 2)
+            self.assertTrue(outputs.is_dir())
+            self.assertEqual(list(outputs.iterdir()), [])
+            self.assertEqual(source.read_bytes(), b"original")
+
     def test_timestamp_score_combines_availability_chronology_and_proximity(self):
         def asset(created, modified, fs_created, fs_modified):
             return {

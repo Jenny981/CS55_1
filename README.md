@@ -50,6 +50,8 @@ Open `http://localhost:8505`. The built frontend and API are served together. No
 
 Use **Materials** to upload files, enter paths, or open the macOS native file chooser. **Panel review** shows every detected PDF region before matching: users can keep or exclude candidates, edit pixel boundaries and order, or add manual boxes. **Correspondence** offers first/last reviewed-panel selectors, endpoint previews and a panel library. **Matching workspace** provides a Final frame browser, ranked evidence cards, semantic reranking indicators and optional corrections. **Assessment** shows metrics and JSON downloads. **Provenance** exposes individual rubric checks and timestamp comparisons.
 
+The sidebar **Clear cache** action reports the current generated-output size and opens a destructive-action confirmation dialog. It removes only children of the local `outputs/` directory: generated runs, sampled frames, extracted panels, browser-upload copies and JSON results. It is disabled while processing is active. It does not remove source files referenced by path, code, dependencies, virtual environments or downloaded model weights.
+
 The server binds to loopback. Local paths and native selection refer to the server machine. Uploaded material is streamed to the local `outputs/` directory. Source ZIPs include frontend code and the npm lockfile, excluding `node_modules` and generated builds.
 
 ### Streamlit frontend

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Layers3, FolderOpen, UploadCloud, ArrowUpRight, ArrowRight, Check, CheckCheck, ChevronRight, Download, FileText, Film, Frame, Grid2X2, Image as ImageIcon, Info, Loader2, Play, Plus, ScanLine, Search, Settings2, ShieldCheck, SlidersHorizontal, Sparkles, X, CircleHelp, CheckCircle2, CircleDot, Link2 } from 'lucide-react'
+import { Layers3, FolderOpen, UploadCloud, ArrowUpRight, ArrowRight, Check, CheckCheck, ChevronRight, Download, FileText, Film, Frame, Grid2X2, Image as ImageIcon, Info, Loader2, Play, Plus, ScanLine, Search, Settings2, ShieldCheck, SlidersHorizontal, Sparkles, Trash2, X, CircleHelp, CheckCircle2, CircleDot, Link2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -20,6 +20,7 @@ async function api(path, body) {
 }
 const label = value => String(value || '').replaceAll('_', ' ')
 const clock = value => `${Math.floor((value || 0) / 60).toString().padStart(2,'0')}:${Math.floor((value || 0) % 60).toString().padStart(2,'0')}`
+const formatBytes = value => value>=1024**3?`${(value/1024**3).toFixed(1)} GB`:value>=1024**2?`${(value/1024**2).toFixed(1)} MB`:value>=1024?`${(value/1024).toFixed(1)} KB`:`${value||0} B`
 const media = (id, path) => `/api/runs/${id}/media?path=${encodeURIComponent(path)}`
 const nav = [{id:'materials', name:'Materials', icon:FolderOpen}, {id:'panels',name:'Panel review',icon:ImageIcon}, {id:'ranges',name:'Correspondence',icon:Link2}, {id:'matches',name:'Matching workspace',icon:ScanLine}, {id:'results',name:'Assessment',icon:Grid2X2}, {id:'provenance',name:'Provenance',icon:ShieldCheck}]
 
@@ -77,7 +78,7 @@ function TimestampRelationshipCard({relationship: r, modern}) {
 function App() {
   const [boot,setBoot]=useState(null), [run,setRun]=useState(null), [page,setPage]=useState('matches')
   const [error,setError]=useState(''), [notice,setNotice]=useState(''), [job,setJob]=useState(null), [jobInfo,setJobInfo]=useState(null)
-  const [busy,setBusy]=useState(false), [settingsOpen,setSettingsOpen]=useState(false)
+  const [busy,setBusy]=useState(false), [settingsOpen,setSettingsOpen]=useState(false), [cacheOpen,setCacheOpen]=useState(false)
   const [draft,setDraft]=useState(null), [policy,setPolicy]=useState('range_top1'), [useText,setUseText]=useState(true), [useStructure,setUseStructure]=useState(true), [topK,setTopK]=useState(5), [minimum,setMinimum]=useState(.25), [margin,setMargin]=useState(.02)
   const [panelManifest,setPanelManifest]=useState(null)
   const [first,setFirst]=useState(null), [last,setLast]=useState(null), [kind,setKind]=useState('storyboard'), [from,setFrom]=useState(0), [to,setTo]=useState(10), [animFrom,setAnimFrom]=useState(0), [animTo,setAnimTo]=useState(10)
@@ -128,6 +129,7 @@ function App() {
   async function runMatching(){const j=await api(`/runs/${run.id}/match`,{acceptance_mode:policy,use_text_reranking:useText,use_structure:useStructure,top_k:Number(topK),min_visual_similarity:Number(minimum),min_top1_margin:Number(margin),text_rank_weight:1.25,text_visual_shortlist:5,text_max_visual_loss:.05});setSettingsOpen(false);start(j)}
   async function review(choice){await api(`/runs/${run.id}/reviews`,{reviews:[{route,final_index:finalIndex,decision:choice?'matched':'unmatched',candidate_id:choice||null,reason:choice?'Selected during optional visual review':'No candidate supports this frame'}]});await openRun(run.id);setRoute(route);setSelected(finalIndex);setNotice('Your correction has been saved.')}
   async function savePanelReview(pages){const response=await api(`/runs/${run.id}/panel-review`,{pages});await openRun(run.id);setPage('ranges');setNotice(`${response.panel_count} reviewed panels saved. Text descriptions were refreshed.`)}
+  async function clearGeneratedCache(){const response=await api('/cache/clear',{confirmation:'CLEAR_GENERATED_CACHE'});setCacheOpen(false);setRun(null);setPanelManifest(null);setPage('materials');await refresh();setNotice(`Generated cache cleared: ${response.removed_files} files, ${formatBytes(response.removed_bytes)} removed.`)}
 
   return <div className="app-shell">
     <aside className="sidebar">
@@ -138,7 +140,7 @@ function App() {
       <div className="sidebar-divider"/>
       <div className="nav-label flex justify-between">RECENT RUNS <button aria-label="Refresh runs" onClick={()=>attempt(refresh)}><Plus size={14}/></button></div>
       <div className="run-list">{boot?.runs.slice(0,7).map((r,i)=><button key={r.id} className={run?.id===r.id?'run-item selected':'run-item'} onClick={()=>attempt(()=>openRun(r.id))}><span className="run-dot"/><div>{r.id.includes('revision')?'Result revision':`Evidence run ${boot.runs.length-i}`}<small>{new Date(r.created*1000).toLocaleString('en-GB',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}</small></div>{r.has_results&&<Check size={13}/>}</button>)}</div>
-      <div className="sidebar-bottom"><ShieldCheck size={18}/><div>Private by default<small>Files stay on your device</small></div></div>
+      <div className="sidebar-bottom"><button className="cache-button" onClick={()=>setCacheOpen(true)} disabled={locked} title="Clear generated cache"><Trash2 size={16}/><div>Clear cache<small>{formatBytes(boot?.cache?.bytes)}</small></div></button><div className="privacy-note"><ShieldCheck size={18}/><div>Private by default<small>Files stay on your device</small></div></div></div>
     </aside>
     <main className="main-shell">
       <header className="topbar"><div className="breadcrumbs">Workspace <ChevronRight size={13}/><span>{heading.name}</span></div><div className="topbar-right"><span className="connection"><i/>Local system</span><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="Open GitHub"><ArrowUpRight size={17}/></a><div className="avatar">CS</div></div></header>
@@ -199,6 +201,7 @@ function App() {
       </div>
     </main>
     <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}><DialogContent><DialogHeader><DialogTitle>Matching settings</DialogTitle><DialogDescription>Fine-tune global candidate selection without extracting your materials again.</DialogDescription></DialogHeader><Field label="Selection policy"><Select value={policy} onValueChange={setPolicy}><SelectTrigger><SelectValue/></SelectTrigger><SelectContent><SelectItem value="range_top1">Global Top-1 · Automatic</SelectItem><SelectItem value="strict">Strict support checks</SelectItem></SelectContent></Select></Field><div className="two-fields"><Field label="Candidates per frame"><Input type="number" min="1" max="50" value={topK} onChange={e=>setTopK(e.target.value)}/></Field><Field label="Minimum visual similarity"><Input type="number" min="0" max="1" step=".01" value={minimum} onChange={e=>setMinimum(e.target.value)}/></Field></div>{policy==='strict'&&<Field label="Minimum Top-1 / Top-2 margin"><Input type="number" min="0" step=".01" value={margin} onChange={e=>setMargin(e.target.value)}/></Field>}<div className="switch-row"><div><strong>Text semantics</strong><p>Rerank visually similar panels using descriptions.</p></div><Switch checked={useText} onCheckedChange={setUseText} aria-label="Text semantics"/></div><div className="switch-row"><div><strong>Local structure</strong><p>Record directional edge and spatial support.</p></div><Switch checked={useStructure} onCheckedChange={setUseStructure} aria-label="Local structure"/></div><p className="subtext">Correspondence declarations are compared after retrieval and never restrict the candidate search.</p><Button disabled={locked||!run} onClick={()=>attempt(runMatching)}><Play size={14}/>Run with these settings</Button></DialogContent></Dialog>
+    <Dialog open={cacheOpen} onOpenChange={setCacheOpen}><DialogContent><DialogHeader><DialogTitle>Clear generated cache?</DialogTitle><DialogDescription>This removes generated runs, sampled frames, extracted panels, uploaded copies and JSON results from this local workspace. Source files referenced by local paths, code, dependencies and model downloads are not removed.</DialogDescription></DialogHeader><div className="cache-summary"><Trash2 size={20}/><div><strong>{formatBytes(boot?.cache?.bytes)}</strong><span>{boot?.cache?.files||0} generated files · {boot?.cache?.entries||0} workspace entries</span></div></div><div className="soft-note"><Info size={16}/><p>This cannot be undone. Download any JSON results you need before clearing the cache.</p></div><div className="dialog-actions"><Button variant="outline" onClick={()=>setCacheOpen(false)}>Cancel</Button><Button variant="destructive" disabled={locked} onClick={()=>attempt(clearGeneratedCache)}><Trash2 size={14}/>Clear generated cache</Button></div></DialogContent></Dialog>
   </div>
 }
 

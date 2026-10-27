@@ -2,6 +2,7 @@
 import io
 import json
 import platform
+import shutil
 import subprocess
 import sys
 import threading
@@ -25,6 +26,28 @@ from cs55_demo.automatic import validate_ranges
 
 executor = ThreadPoolExecutor(max_workers=1)
 jobs, lock = {}, threading.Lock()
+
+
+def cache_summary(root=None):
+    root = Path(root) if root is not None else ROOT / 'outputs'
+    files = [path for path in root.rglob('*') if path.is_file()] if root.is_dir() else []
+    return dict(bytes=sum(path.stat().st_size for path in files), files=len(files),
+                entries=len(list(root.iterdir())) if root.is_dir() else 0)
+
+
+def clear_generated_cache(root):
+    """Remove generated children of root while preserving root itself."""
+    root = Path(root)
+    before = cache_summary(root)
+    if root.is_dir():
+        for child in root.iterdir():
+            if child.is_dir() and not child.is_symlink():
+                shutil.rmtree(child)
+            else:
+                child.unlink(missing_ok=True)
+    else:
+        root.mkdir(parents=True)
+    return before
 
 
 def read(path, default=None):
@@ -69,7 +92,23 @@ async def bootstrap(request):
     config_path = ROOT / 'config.local.json'
     config = load_config(config_path if config_path.exists() else ROOT / 'config.example.json')
     return JSONResponse(dict(config=config, runs=[dict(id=p.parent.name, created=p.stat().st_mtime,
-        has_results=(p.parent / 'result.json').is_file()) for p in paths], native_picker=platform.system() == 'Darwin'))
+        has_results=(p.parent / 'result.json').is_file()) for p in paths],
+        cache=cache_summary(), native_picker=platform.system() == 'Darwin'))
+
+
+async def clear_cache(request):
+    body = await request.json()
+    if body.get('confirmation') != 'CLEAR_GENERATED_CACHE':
+        raise ValueError('Explicit cache-clear confirmation is required')
+    with lock:
+        if any(job['state'] == 'running' for job in jobs.values()):
+            raise ValueError('Wait for the active processing job to finish before clearing cache')
+    root = ROOT / 'outputs'
+    before = clear_generated_cache(root)
+    with lock:
+        jobs.clear()
+    return JSONResponse(dict(cleared=True, removed_bytes=before['bytes'],
+                             removed_files=before['files'], cache=cache_summary()))
 
 
 async def detail(request):
@@ -242,7 +281,8 @@ async def handle_error(request, exc):
     return JSONResponse(dict(error=str(exc)), status_code=400)
 
 
-routes = [Route('/api/bootstrap', bootstrap), Route('/api/prepare', start_prepare, methods=['POST']),
+routes = [Route('/api/bootstrap', bootstrap), Route('/api/cache/clear', clear_cache, methods=['POST']),
+          Route('/api/prepare', start_prepare, methods=['POST']),
           Route('/api/upload/{role}', upload, methods=['POST']), Route('/api/choose-file', choose_file, methods=['POST']),
           Route('/api/jobs/{job_id}', job_status), Route('/api/runs/{run_id}', detail),
           Route('/api/runs/{run_id}/ranges', update_ranges, methods=['POST']),
