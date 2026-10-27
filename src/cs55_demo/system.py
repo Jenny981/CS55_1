@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 import numpy as np
 
 from .automatic import extract_automatic_panels, validate_ranges, allowed_evidence, select_top1, rerank_with_text
+from .storyboard_layout import export_reviewed
 from .sampling import extract_time_samples
 from .storyboard_text import extract_panel_descriptions, annotate_shared_text_groups
 from .provenance import inspect_asset_basics, collect_project_file_evidence, build_editing_history, build_provenance_summary
@@ -94,8 +95,69 @@ def prepare(config, progress=print):
             row["evidence_index"] = row["source_sample_index"]
         save_json(run / f"{role}_samples.json", frames[role])
     prepared = dict(run_dir=str(run), assets={k: str(v) for k, v in assets.items()},
-                    panels=panels, frames=frames)
+                    panels=panels, frames=frames,
+                    panel_review_confirmed="storyboard" not in assets)
     save_json(run / "prepared.json", prepared)
+    return prepared
+
+
+def apply_panel_review(run, reviewed_pages):
+    """Replace automatic Storyboard proposals with explicit human selections."""
+    run = Path(run)
+    if (run / "result.json").exists():
+        raise ValueError("Panel review must be completed before matching")
+    prepared = json.loads((run / "prepared.json").read_text())
+    manifest = json.loads((run / "panel_manifest.json").read_text())
+    by_page = {int(page["page_index"]): page for page in reviewed_pages}
+    if set(by_page) != {int(page["page_index"]) for page in manifest["pages"]}:
+        raise ValueError("Submit a review for every Storyboard page")
+
+    for page in manifest["pages"]:
+        submitted = by_page[int(page["page_index"])]
+        width, height = page["size"]
+        candidates = []
+        orders = []
+        for position, item in enumerate(submitted.get("candidates", []), 1):
+            decision = item.get("decision")
+            if decision not in ("accept", "reject"):
+                raise ValueError("Mark every panel candidate as accept or reject")
+            order = int(item.get("order", position))
+            if order in orders:
+                raise ValueError("Panel order values must be unique within a page")
+            orders.append(order)
+            box = [int(round(float(value))) for value in item.get("bbox", [])]
+            if len(box) != 4 or not (0 <= box[0] < box[2] <= width and
+                                     0 <= box[1] < box[3] <= height):
+                raise ValueError(f"Page {page['page_index']} contains an invalid panel boundary")
+            candidates.append(dict(item, bbox=box, decision=decision, order=order,
+                                   method=item.get("method", "manual_review"),
+                                   decision_source="human_panel_review",
+                                   needs_boundary_review=False))
+        page["candidates"] = sorted(candidates, key=lambda item: item["order"])
+        page.update(reviewed=True, review_source="human_panel_review",
+                    extraction_status="panels_available" if any(
+                        item["decision"] == "accept" for item in candidates) else "not_extracted")
+
+    records = export_reviewed(manifest)
+    for evidence_index, record in enumerate(records, 1):
+        record.update(evidence_index=evidence_index, review_status="human_accepted",
+                      decision_source="human_panel_review")
+    descriptions = extract_panel_descriptions(manifest["source_pdf"], records)
+    for record, item in zip(records, descriptions):
+        item["storyboard_index"] = record["evidence_index"]
+    descriptions = annotate_shared_text_groups(descriptions)
+    for record, item in zip(records, descriptions):
+        record["text"] = item
+
+    prepared.update(panels=records, panel_review_confirmed=True)
+    config = json.loads((run / "config.json").read_text())
+    config["correspondence_ranges"] = [rule for rule in config.get("correspondence_ranges", [])
+                                       if rule.get("evidence_type") != "storyboard"]
+    save_json(run / "panel_manifest.json", manifest)
+    save_json(run / "panel_catalog.json", records)
+    save_json(run / "storyboard_text.json", descriptions)
+    save_json(run / "prepared.json", prepared)
+    save_json(run / "config.json", config)
     return prepared
 
 

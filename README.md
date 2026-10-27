@@ -48,7 +48,7 @@ python web_server.py
 
 Open `http://localhost:8505`. The built frontend and API are served together. Node.js is needed for building; only Python is needed to serve an existing build. For frontend development, run `npm run dev` in a second terminal; Vite proxies API calls to port 8505.
 
-Use **Materials** to upload files, enter paths, or open the macOS native file chooser. **Correspondence** offers first/last panel selectors, endpoint previews and a panel library. **Matching workspace** provides a Final frame browser, ranked evidence cards, semantic reranking indicators and optional corrections. **Assessment** shows metrics and JSON downloads. **Provenance** exposes individual rubric checks and timestamp comparisons.
+Use **Materials** to upload files, enter paths, or open the macOS native file chooser. **Panel review** shows every detected PDF region before matching: users can keep or exclude candidates, edit pixel boundaries and order, or add manual boxes. **Correspondence** offers first/last reviewed-panel selectors, endpoint previews and a panel library. **Matching workspace** provides a Final frame browser, ranked evidence cards, semantic reranking indicators and optional corrections. **Assessment** shows metrics and JSON downloads. **Provenance** exposes individual rubric checks and timestamp comparisons.
 
 The server binds to loopback. Local paths and native selection refer to the server machine. Uploaded material is streamed to the local `outputs/` directory. Source ZIPs include frontend code and the npm lockfile, excluding `node_modules` and generated builds.
 
@@ -69,14 +69,15 @@ Copy `config.example.json` to `config.local.json` and set your material paths. P
 ## Notebook steps
 
 1. Locate the project and load configuration.
-2. Automatically extract panels and sample videos.
-3. Inspect the panel catalog and optionally declare expected Final correspondence ranges.
-4. Run global candidate retrieval and provisional Top-1 decisions.
-5. Inspect selected, uncertain, and insufficient-evidence lists.
-6. Optionally provide human overrides.
-7. Inspect independent provenance scores and timestamp comparisons.
+2. Generate panel candidates and sample videos.
+3. Review every Storyboard page and confirm the panel boundaries retained for matching.
+4. Inspect the reviewed panel catalog and optionally declare expected Final correspondence ranges.
+5. Run global candidate retrieval and provisional Top-1 decisions.
+6. Inspect selected, uncertain, and insufficient-evidence lists.
+7. Optionally provide human overrides.
+8. Inspect independent provenance scores and timestamp comparisons.
 
-No page-by-page panel acceptance is required. Automatic extraction retains a quality audit and the PDF page order. Some layouts may produce incomplete or incorrect proposals; `panel_catalog.json` and `panel_manifest.json` make those omissions visible. Panel IDs refer to original proposal order and are not renumbered after filtering. Use the exported catalog IDs when declaring ranges.
+Automatic extraction produces suggestions only. Storyboard matching is blocked in the React UI until the user confirms the panel review. The review can accept or exclude proposals, change their order and pixel boundaries, and add manual boxes. Confirmation re-crops the panels and re-extracts descriptions. The resulting `panel_catalog.json` and `panel_manifest.json` preserve the review trail; final panel IDs follow the confirmed page and order sequence.
 
 ## Declared correspondence ranges
 
@@ -111,7 +112,7 @@ Animatic-to-Storyboard candidates provide supplementary context. They do not ove
 Each execution creates a fresh directory under `output_dir`:
 
 - `prepared.json`, `config.json`: reproducible inputs and preparation records.
-- `panel_manifest.json`, `panel_catalog.json`, `storyboard_text.json`: automatic extraction audit and shared text mapping.
+- `panel_manifest.json`, `panel_catalog.json`, `storyboard_text.json`: candidate boundaries, human panel decisions and refreshed shared text mapping.
 - `final_samples.json`, `animatic_samples.json`: retained sample indices and original-video timestamps.
 - `correspondence_diagnostics.json`: global selected pairs compared with the declared baseline, including conformance, outside-baseline, missing-support and expected-evidence coverage observations.
 - `result.json`: all retained candidates, automatic decisions, supplementary relationships.

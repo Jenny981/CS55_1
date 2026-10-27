@@ -1,13 +1,16 @@
 import json
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
 
 import fitz
 import numpy as np
+from PIL import Image
 
 from cs55_demo.automatic import allowed_evidence, validate_ranges, select_top1, extract_automatic_panels, rerank_with_text
-from cs55_demo.system import load_config, retrieve, apply_reviews, save_json, _scores
+from cs55_demo.system import (load_config, retrieve, apply_reviews,
+                              apply_panel_review, save_json, _scores)
 from cs55_demo.provenance_scoring import timestamp_comparisons
 
 
@@ -136,6 +139,43 @@ class WorkflowTests(unittest.TestCase):
             records, manifest = extract_automatic_panels(root / "empty.pdf", root / "panels")
             self.assertEqual(records, [])
             self.assertEqual(manifest["pages"][0]["extraction_status"], "not_extracted")
+
+    def test_human_panel_review_recrops_and_confirms_storyboard(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            pdf_path = root / "storyboard.pdf"
+            with fitz.open() as document:
+                page = document.new_page(width=100, height=100)
+                page.draw_rect(fitz.Rect(10, 10, 90, 90), color=(0, 0, 0))
+                document.save(pdf_path)
+            page_path = root / "page.png"
+            Image.new("RGB", (200, 200), "white").save(page_path)
+            manifest = {
+                "source_pdf": str(pdf_path),
+                "source_sha256": hashlib.sha256(pdf_path.read_bytes()).hexdigest(),
+                "run_dir": str(root),
+                "pages": [{"page_index": 1, "page_path": str(page_path),
+                           "preview_path": str(page_path), "size": [200, 200],
+                           "content_bbox": [0, 0, 200, 200], "reviewed": False,
+                           "candidates": [{"bbox": [0, 0, 50, 50], "method": "automatic",
+                                           "decision": "accept"}]}],
+            }
+            save_json(root / "panel_manifest.json", manifest)
+            save_json(root / "prepared.json", {"run_dir": str(root),
+                      "assets": {"storyboard": str(pdf_path)}, "panels": [],
+                      "frames": {"final": [], "animatic": []},
+                      "panel_review_confirmed": False})
+            save_json(root / "config.json", {"correspondence_ranges": []})
+
+            prepared = apply_panel_review(root, [{"page_index": 1, "candidates": [
+                {"bbox": [20, 30, 120, 150], "method": "manual_review",
+                 "decision": "accept", "order": 1}]}])
+
+            self.assertTrue(prepared["panel_review_confirmed"])
+            self.assertEqual(prepared["panels"][0]["bbox"], [20, 30, 120, 150])
+            self.assertEqual(prepared["panels"][0]["decision_source"], "human_panel_review")
+            with Image.open(prepared["panels"][0]["panel_path"]) as panel_image:
+                self.assertEqual(panel_image.size, (100, 120))
 
     def test_global_retrieval_observes_correspondence_deviation(self):
         with tempfile.TemporaryDirectory() as directory:

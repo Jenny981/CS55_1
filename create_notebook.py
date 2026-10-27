@@ -16,7 +16,7 @@ def add(kind, source):
 add("markdown", """
 # CS55 Production Evidence Evaluation
 
-Automatic panel extraction and range-constrained Final-led matching.
+Human-reviewed panel extraction and global Final-led matching.
 The notebook calls the same modules as `run_demo.py`. Automatic matches remain provisional.
 """)
 add("markdown", """
@@ -42,7 +42,8 @@ if PROJECT_ROOT is None:
     raise ValueError("Set PROJECT_ROOT to the CS55_system project directory")
 PROJECT_ROOT = Path(PROJECT_ROOT).expanduser().resolve()
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
-from cs55_demo.system import load_config, prepare, retrieve, inspect_provenance, apply_reviews, save_json
+from cs55_demo.system import (load_config, prepare, retrieve, inspect_provenance,
+                              apply_panel_review, apply_reviews, save_json)
 
 CONFIG_PATH = PROJECT_ROOT / "config.local.json"
 if not CONFIG_PATH.exists():
@@ -51,28 +52,60 @@ config = load_config(CONFIG_PATH)
 display(pd.DataFrame([config.get("sampling", {})]))
 ''')
 add("markdown", """
-## 2. Automatic panels and video samples
+## 2. Review panel extraction and video samples
 
-Usable panel proposals are exported automatically; no mandatory page review.
-Empty, tiny and invalid regions are excluded and recorded. Detection can be incomplete.
+Automatic detection proposes panel boundaries but does not verify them. Review every page,
+edit bounding boxes or their order, and mark each candidate `accept` or `reject`.
+You may append a manual candidate using rendered-page pixel coordinates.
 Video start/end times and sample intervals are configured independently for Final and Animatic.
 """)
 add("code", '''
 prepared = prepare(config)
 RUN_DIR = Path(prepared["run_dir"])
-panel_catalog = pd.DataFrame(prepared["panels"])
-catalog_fields = [k for k in ("evidence_index", "page_index", "panel_index", "panel_path", "review_status") if k in panel_catalog]
-display(panel_catalog[catalog_fields])
+manifest = json.loads((RUN_DIR / "panel_manifest.json").read_text()) if (RUN_DIR / "panel_manifest.json").exists() else None
+if manifest:
+    for page in manifest["pages"]:
+        print(f"Page {page['page_index']}: {page['preview_path']}")
+        display(DisplayImage(filename=page["preview_path"], width=600))
+        display(pd.DataFrame([{
+            "order": candidate.get("order", index),
+            "bbox": candidate["bbox"],
+            "decision": candidate["decision"],
+            "method": candidate["method"],
+        } for index, candidate in enumerate(page["candidates"], 1)]))
 print("Panel catalog:", RUN_DIR / "panel_catalog.json")
 print("Output directory:", RUN_DIR)
+''')
+add("markdown", """
+### Confirm or edit candidates
+
+Edit `manifest["pages"][...]["candidates"]` below. A candidate is:
+`{"bbox": [left, top, right, bottom], "decision": "accept", "order": 1, "method": "manual_review"}`.
+The review must include every page; a page may have no candidates. Confirmation re-crops the images
+and re-extracts descriptions before matching.
+""")
+add("code", '''
+if manifest:
+    # Example manual box:
+    # manifest["pages"][0]["candidates"].append({
+    #     "bbox": [100, 200, 900, 700], "decision": "accept",
+    #     "order": 99, "method": "manual_review"})
+    reviewed_pages = [{"page_index": page["page_index"],
+                       "candidates": [{**candidate, "order": candidate.get("order", index)}
+                                      for index, candidate in enumerate(page["candidates"], 1)]}
+                      for page in manifest["pages"]]
+    prepared = apply_panel_review(RUN_DIR, reviewed_pages)
+panel_catalog = pd.DataFrame(prepared["panels"])
+catalog_fields = [key for key in ("evidence_index", "page_index", "panel_index",
+                                   "panel_path", "review_status") if key in panel_catalog]
+display(panel_catalog[catalog_fields])
 ''')
 add("markdown", """
 ## 3. Declare correspondence ranges
 
 Use `evidence_index` from the panel catalog. A rule may cover several panels.
 Times use the original video timeline, with half-open intervals `[start, end)`.
-These are declared constraints, not verified Ground Truth.
-Final frames outside the declared ranges remain in the coverage denominator.
+These are a declared comparison baseline, not verified Ground Truth and not retrieval constraints.
 """)
 add("code", '''
 # Edit these ranges or edit correspondence_ranges in config.local.json.
@@ -88,14 +121,15 @@ save_json(RUN_DIR / "config.json", config)
 display(pd.DataFrame(CORRESPONDENCE_RANGES))
 ''')
 add("markdown", """
-## 4. Range-constrained matching and automatic decisions
+## 4. Global matching and automatic decisions
 
-Visual CLIP ranks candidates inside each declared range. Grouped text and valid local structure
+Visual CLIP ranks candidates across all reviewed evidence. Grouped text and valid local structure
 provide Storyboard support; neighbouring candidates provide additional context.
 Top-1 requires minimum visual similarity, a sufficient margin when a runner-up exists,
 and auxiliary support. Excessive continuous reuse requires review.
 Thresholds are configurable heuristics; validate their accuracy before trusting automation.
 No monotonic path is imposed before sequence assessment.
+Selected pairs are compared with the declared correspondence only after retrieval.
 """)
 add("code", '''
 result = retrieve(config, prepared)
