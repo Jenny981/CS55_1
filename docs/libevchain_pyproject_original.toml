@@ -1,8 +1,0 @@
-[project]
-name = "libevchain"
-description = "JSON format & evaluation pipeline for COMP3988 P44"
-version = "0.0.0"
-
-
-[build-system]
-requires = ["setuptools", "wheel"]

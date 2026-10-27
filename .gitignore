@@ -1,7 +1,12 @@
 .venv/
 __pycache__/
 *.pyc
-cache/*.pt
-outputs/final_evidence_chain_result.json
-outputs/evidence_chain_bundle.json
-config.sollevante.json
+*.egg-info/
+.ipynb_checkpoints/
+outputs/
+data/
+config.local.json
+.env
+.DS_Store
+frontend/node_modules/
+frontend/dist/

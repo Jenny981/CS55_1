@@ -1,21 +1,19 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cs55-1-demo"
+name = "cs55-evidence-system"
 version = "0.1.0"
-description = "CS55-1 cross-modal evidence-chain demo using the project-provided libevchain framework"
-requires-python = ">=3.11"
-dependencies = [
-  "numpy>=1.24",
-  "pillow>=10.0",
-  "torch>=2.1",
-  "transformers>=4.40",
-  "pymupdf>=1.24",
-  "opencv-python>=4.10"
-]
+description = "Notebook and CLI production evidence evaluation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "pandas>=2.0", "Pillow>=10", "torch>=2.1", "transformers>=4.40", "pymupdf>=1.24", "opencv-python>=4.10"]
+
+[project.optional-dependencies]
+frontend = ["streamlit>=1.45"]
+web = ["starlette>=0.40", "uvicorn>=0.30"]
+notebook = ["jupyterlab", "ipykernel", "ipywidgets"]
+provenance = ["c2pa-python>=0.38"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
-namespaces = true

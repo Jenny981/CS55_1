@@ -1,0 +1,32 @@
+{
+  "final_path": "data/final.mp4",
+  "storyboard_path": "data/storyboard.pdf",
+  "animatic_path": null,
+  "output_dir": "outputs",
+  "model_name": "openai/clip-vit-base-patch32",
+  "inspect_provenance": true,
+  "sampling": {
+    "final": {"interval_sec": 2.0, "start_sec": 0.0, "end_sec": null, "skip_near_blank": true},
+    "animatic": {"interval_sec": 2.0, "start_sec": 0.0, "end_sec": null, "skip_near_blank": true}
+  },
+  "matching": {
+    "acceptance_mode": "range_top1",
+    "use_text_reranking": true,
+    "text_visual_shortlist": 5,
+    "text_max_visual_loss": 0.05,
+    "text_rank_weight": 1.25,
+    "top_k": 5,
+    "min_visual_similarity": 0.25,
+    "min_top1_margin": 0.02,
+    "require_auxiliary_support": true,
+    "text_top_k": 10,
+    "structure_top_k": 10,
+    "structure_candidate_limit": 20,
+    "use_structure": true,
+    "neighbor_radius": 2,
+    "max_consecutive": 5
+  },
+  "correspondence_ranges": [
+    {"evidence_type": "storyboard", "panel_indices": [1, 2, 3], "final_start_sec": 0.0, "final_end_sec": 10.0}
+  ]
+}

@@ -1,8 +1,1 @@
-numpy>=1.24
-pillow>=10.0
-torch>=2.1
-transformers>=4.40
-jupyter>=1.0
-pymupdf>=1.24
-opencv-python>=4.10
-c2pa-python>=0.38
+-e .[notebook,provenance,frontend,web]
