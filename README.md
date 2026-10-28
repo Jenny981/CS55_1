@@ -2,12 +2,16 @@
 
 The notebook and CLI use the same Python modules. The system extracts usable Storyboard panels automatically, samples videos by time, searches all extracted evidence, and compares the resulting pairs with submitter-declared correspondence before optional human review.
 
+## External testing
+
+See the [external testing guide](docs/EXTERNAL_TESTING.md) for setup, suggested red-team cases, metric interpretation and issue reporting.
+
 ## Install and run
 
 macOS/Linux:
 
 ```bash
-cd CS55_system
+cd CS55_1
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -17,7 +21,7 @@ python -m jupyter lab
 Windows PowerShell:
 
 ```powershell
-cd CS55_system
+cd CS55_1
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
@@ -166,7 +170,7 @@ CS55_system/
   .gitignore
 ```
 
-Only source, a clean notebook, tests, and example configuration belong in GitHub. Material files, generated outputs, virtual environments, and local settings are excluded. No GitHub push has been performed.
+Only source, a clean notebook, tests, and example configuration belong in GitHub. Material files, generated outputs, virtual environments, and local settings are excluded. Generated outputs and local settings should remain outside source control.
 
 ## Verification
 
