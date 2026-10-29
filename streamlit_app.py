@@ -1,4 +1,4 @@
-"""English UI for the shared CS55 notebook and CLI pipeline."""
+"""UI for the shared CS55 notebook and CLI pipeline."""
 import copy
 import json
 import sys
