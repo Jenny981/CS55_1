@@ -1,4 +1,4 @@
-"""Generate the clean notebook entry point for the shared package."""
+
 import json
 from pathlib import Path
 
