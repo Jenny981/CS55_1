@@ -1,4 +1,4 @@
-"""Independent CLIP/edge-HOG candidate retrieval. No fused score or verdict."""
+"""Independent CLIP/edge-HOG candidate retrieval."""
 from pathlib import Path
 import hashlib
 import cv2
