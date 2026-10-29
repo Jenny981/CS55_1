@@ -2,6 +2,10 @@
 
 The notebook and CLI use the same Python modules. The system extracts usable Storyboard panels automatically, samples videos by time, searches all extracted evidence, and compares the resulting pairs with submitter-declared correspondence before optional human review.
 
+## System Wiki
+
+See the [bilingual system Wiki](docs/wiki/Home.md) for purpose, installation, architecture, matching, review, scoring, outputs, troubleshooting and the retrospective development log.
+
 ## External testing
 
 See the [external testing guide](docs/EXTERNAL_TESTING.md) for setup, suggested red-team cases, metric interpretation and issue reporting.
